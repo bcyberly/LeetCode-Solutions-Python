@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-125-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-126-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -209,6 +209,7 @@ LeetCode-Solutions-Python/
 | 1979 | [Find Greatest Common Divisor of Array](./Math/1979_Find_Greatest_Common_Divisor_of_Array.py) | Easy | O(N) Min-Max Scan & Euclidean Algorithm | O(N) | O(1) |
 | 2033 | [Minimum Operations to Make a Uni-Value Grid](./Math/2033_Min_Operations_Uni_Value_Grid.py) | Medium | Median Minimization / Modulo Math | O(N log N) | O(N) |
 | 3312 | [Sorted GCD Pair Queries](./Math/3312_Sorted_GCD_Pair_Queries.py) | Hard | Inclusion-Exclusion Sieve & Prefix Binary Search | O(M log M) | O(M) |
+| 3536 | [Maximum Product of Two Digits](./Math/3536_Maximum_Product_of_Two_Digits.py) | Easy | Top-Two Digit Extraction & Modulo Arithmetic | O(d) | O(1) |
 | 3658 | [GCD of Odd and Even Sums](./Math/3658_GCD_of_Odd_and_Even_Sums.py) | Easy | Mathematical Simplification | O(1) | O(1) |
 | 3754 | [Concatenate Non-Zero Digits and Multiply by Sum I](./Math/3754_Concatenate_Non_Zero_Digits_and_Multiply_by_Sum_I.py) | Easy | String Filtering & Digit Sum Math | O(D) | O(D) |
 | 3783 | [Mirror Distance of an Integer](./Math/3783_Mirror_Distance_of_an_Integer.py) | Easy | String Slicing / Digit Extraction | O(D) | O(D) |
@@ -258,9 +259,9 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 125
+Total Problems: 126
 
-Easy: 36
+Easy: 37
 
 Medium: 60
 
@@ -285,7 +286,7 @@ Last updated: Daily
 | Graphs    | 1391, 1559, 2812, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
 | Backtracking / Decision Tree | 37, 401, 1415 |
-| Math / Modular Arithmetic  | 1622, 1979, 2033, 3300, 3312, 3558, 3658, 3754, 3783, 3867 |
+| Math / Modular Arithmetic  | 1622, 1979, 2033, 3300, 3312,3536, 3558, 3658, 3754, 3783, 3867 |
 | Matrix / 2D Traversal      | 1260, 1582, 1594, 1727, 1878, 1886, 2906, 2946, 3070, 3212, 3546, 3548, 3567, 3643 |
 | String Manipulation / Parity | 2451, 2839, 2840 |
 | Arrays / Circular Traversal | 2515 |
@@ -372,6 +373,8 @@ Last updated: Daily
 **1260. Shift 2D Grid**: Marks the phenomenal **120th Problem Milestone**! Bypasses the complex conditional logic of simulating 2D matrix wrap-arounds by treating the matrix as a continuous 1D cyclic array. By applying an inverse modulo transformation `(curr_1D - k) % TOTAL`, the algorithm mathematically queries the origin of every cell in a single $O(M \times N)$ sweep. The heavily optimized Pythonic variant achieves the exact same result in three lines of code by executing raw C-level list slicing and reshaping.
 
 **3499. Maximize Active Section with Trade I**: Deconstructs a complex, multi-stage block transformation rule into an ultra-lean $O(N)$ linear sweep. Utilizing the "1-Refund Illusion," the algorithm recognizes that sacrificing an active block perfectly merges the adjacent inactive blocks, and immediately refunds the sacrificed elements when the newly formed superstructure is converted back. This mathematical guarantee reduces the logic to simply finding the maximum sum of any two adjacent inactive blocks and appending it to the original active base count.
+
+**3536. Maximum Product of Two Digits**: Marks the incredible **125th Problem Milestone**! Bypasses the $O(d^2)$ redundant evaluations of testing pairwise digit combinations by recognizing that the maximum product strictly relies on the two largest numerical digits present in the integer. The Pythonic implementation achieves this in $O(d \log d)$ time via string conversion and sorting, while the bare-metal math variant executes in strictly $O(d)$ time and $O(1)$ auxiliary space by peeling digits from right to left using modulo arithmetic (`% 10`) and maintaining a running dual-champion tracker.
 
 ### Complex Logic
 
