@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-126-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-127-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -205,6 +205,7 @@ LeetCode-Solutions-Python/
 
 | # | Problem | Difficulty | Approach | Time | Space |
 |---|---------|------------|----------|------|-------|
+| 628 | [Maximum Product of Three Numbers](./Math/0628_Maximum_Product_of_Three_Numbers.py) | Easy | Dual-Extreme Comparison & O(N) Single-Pass Scan | O(N) | O(1) |
 | 1622 | [Fancy Sequence](./Math/1622_Fancy_Sequence.py) | Hard | Modular Inverse (Fermat's Little Theorem) | O(1)* | O(N) |
 | 1979 | [Find Greatest Common Divisor of Array](./Math/1979_Find_Greatest_Common_Divisor_of_Array.py) | Easy | O(N) Min-Max Scan & Euclidean Algorithm | O(N) | O(1) |
 | 2033 | [Minimum Operations to Make a Uni-Value Grid](./Math/2033_Min_Operations_Uni_Value_Grid.py) | Medium | Median Minimization / Modulo Math | O(N log N) | O(N) |
@@ -259,9 +260,9 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 126
+Total Problems: 127
 
-Easy: 37
+Easy: 38
 
 Medium: 60
 
@@ -286,7 +287,7 @@ Last updated: Daily
 | Graphs    | 1391, 1559, 2812, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
 | Backtracking / Decision Tree | 37, 401, 1415 |
-| Math / Modular Arithmetic  | 1622, 1979, 2033, 3300, 3312,3536, 3558, 3658, 3754, 3783, 3867 |
+| Math / Modular Arithmetic  | 628, 1622, 1979, 2033, 3300, 3312,3536, 3558, 3658, 3754, 3783, 3867 |
 | Matrix / 2D Traversal      | 1260, 1582, 1594, 1727, 1878, 1886, 2906, 2946, 3070, 3212, 3546, 3548, 3567, 3643 |
 | String Manipulation / Parity | 2451, 2839, 2840 |
 | Arrays / Circular Traversal | 2515 |
@@ -375,6 +376,8 @@ Last updated: Daily
 **3499. Maximize Active Section with Trade I**: Deconstructs a complex, multi-stage block transformation rule into an ultra-lean $O(N)$ linear sweep. Utilizing the "1-Refund Illusion," the algorithm recognizes that sacrificing an active block perfectly merges the adjacent inactive blocks, and immediately refunds the sacrificed elements when the newly formed superstructure is converted back. This mathematical guarantee reduces the logic to simply finding the maximum sum of any two adjacent inactive blocks and appending it to the original active base count.
 
 **3536. Maximum Product of Two Digits**: Marks the incredible **125th Problem Milestone**! Bypasses the $O(d^2)$ redundant evaluations of testing pairwise digit combinations by recognizing that the maximum product strictly relies on the two largest numerical digits present in the integer. The Pythonic implementation achieves this in $O(d \log d)$ time via string conversion and sorting, while the bare-metal math variant executes in strictly $O(d)$ time and $O(1)$ auxiliary space by peeling digits from right to left using modulo arithmetic (`% 10`) and maintaining a running dual-champion tracker.
+
+**628. Maximum Product of Three Numbers**: Bypasses the combinatorial overhead of checking all possible triplets by mathematically analyzing the sign-flipping properties of integer multiplication. Because the product of two negative numbers yields a positive scalar, the maximum possible product is guaranteed to be either the three largest elements (`max1 * max2 * max3`) or the two smallest negative elements multiplied by the largest element (`min1 * min2 * max1`). The Pythonic solution resolves this in $O(N \log N)$ via sorting, while the optimal bare-metal variant executes in strictly $O(N)$ time and $O(1)$ auxiliary space by sweeping the array once with a five-variable extreme value tracker.
 
 ### Complex Logic
 
