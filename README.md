@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-127-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-128-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -61,6 +61,7 @@ LeetCode-Solutions-Python/
 | # | Problem | Difficulty | Approach | Time | Space |
 |---|---------|------------|----------|------|-------|
 | 42 | [Trapping Rain Water](./Arrays/0042_Trapping_Rain_Water.py) | Hard | Two Pointers (Min-Max bounds) | O(N) | O(1) |
+| 1464 | [Maximum Product of Two Elements in an Array](./Arrays/1464_Maximum_Product_of_Two_Elements.py) | Easy | Dual-Champion Tracking & O(N) Linear Scan | O(N) | O(1) |
 | 1536 | [Minimum Swaps to Arrange a Binary Grid](./Arrays/1536_Minimum_Swaps_to_Arrange_a_Binary_Grid.py) | Medium | Greedy (Pop/Insert Simulation) | O(N²) | O(N) |
 | 1582 | [Special Positions in a Binary Matrix](./Arrays/1582_Special_Positions_in_a_Binary_Matrix.py) | Easy | Matrix Precomputation | O(M * N) | O(M + N) |
 | 1846 | [Maximum Element After Decreasing and Rearranging](./Arrays/1846_Max_Element_After_Decreasing.py) | Medium | Greedy Staircase / O(N) Frequency Buckets | O(N) | O(N) |
@@ -260,9 +261,9 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 127
+Total Problems: 128
 
-Easy: 38
+Easy: 39
 
 Medium: 60
 
@@ -287,7 +288,7 @@ Last updated: Daily
 | Graphs    | 1391, 1559, 2812, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
 | Backtracking / Decision Tree | 37, 401, 1415 |
-| Math / Modular Arithmetic  | 628, 1622, 1979, 2033, 3300, 3312,3536, 3558, 3658, 3754, 3783, 3867 |
+| Math / Modular Arithmetic  | 628, 1464, 1622, 1979, 2033, 3300, 3312,3536, 3558, 3658, 3754, 3783, 3867 |
 | Matrix / 2D Traversal      | 1260, 1582, 1594, 1727, 1878, 1886, 2906, 2946, 3070, 3212, 3546, 3548, 3567, 3643 |
 | String Manipulation / Parity | 2451, 2839, 2840 |
 | Arrays / Circular Traversal | 2515 |
@@ -378,6 +379,8 @@ Last updated: Daily
 **3536. Maximum Product of Two Digits**: Marks the incredible **125th Problem Milestone**! Bypasses the $O(d^2)$ redundant evaluations of testing pairwise digit combinations by recognizing that the maximum product strictly relies on the two largest numerical digits present in the integer. The Pythonic implementation achieves this in $O(d \log d)$ time via string conversion and sorting, while the bare-metal math variant executes in strictly $O(d)$ time and $O(1)$ auxiliary space by peeling digits from right to left using modulo arithmetic (`% 10`) and maintaining a running dual-champion tracker.
 
 **628. Maximum Product of Three Numbers**: Bypasses the combinatorial overhead of checking all possible triplets by mathematically analyzing the sign-flipping properties of integer multiplication. Because the product of two negative numbers yields a positive scalar, the maximum possible product is guaranteed to be either the three largest elements (`max1 * max2 * max3`) or the two smallest negative elements multiplied by the largest element (`min1 * min2 * max1`). The Pythonic solution resolves this in $O(N \log N)$ via sorting, while the optimal bare-metal variant executes in strictly $O(N)$ time and $O(1)$ auxiliary space by sweeping the array once with a five-variable extreme value tracker.
+
+**1464. Maximum Product of Two Elements in an Array**: Completes the extreme-value product trilogy by evaluating array pairs under a decremented transformation. Because problem constraints guarantee strictly positive integers ($nums[i] \ge 1$), subtracting $1$ preserves order monotonicity without introducing negative-sign inversion traps. The algorithm bypasses $O(N^2)$ pairwise evaluations entirely, using an optimal $O(N)$ single-pass linear scan with a dual-champion tracker to isolate the two largest elements in constant $O(1)$ auxiliary memory.
 
 ### Complex Logic
 
