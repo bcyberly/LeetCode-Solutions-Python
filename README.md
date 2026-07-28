@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-128-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-129-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -123,6 +123,7 @@ LeetCode-Solutions-Python/
 | 2839 | [Check if Strings Can be Made Equal With Operations I](./Strings/2839_Check_if_Strings_Can_be_Made_Equal.py) | Easy | Parity Grouping + Sorting | O(1) | O(1) |
 | 2840 | [Check if Strings Can be Made Equal With Operations II](./Strings/2840_Check_if_Strings_Can_be_Made_Equal_II.py) | Medium | Parity Grouping + Frequency Map | O(N) | O(1) |
 | 3501 | [Maximize Active Section with Trade II](./Strings/3501_Maximize_Active_Section_Trade_II.py) | Hard | Sparse Table (RMQ) & Block Parsing | O(NlogN+QlogM) | O(NlogN) |
+| 3517 | [Smallest Palindromic Rearrangement I](./Strings/3517_Smallest_Palindromic_Rearrangement_I.py) | Medium | Alphabetical Frequency Half-Build & Mirroring | O(N) | O(N) |
 | 3532 | [Path Existence Queries in a Graph I](./Graphs/3532_Path_Existence_Queries_in_a_Graph_I.py) | Medium | Sorted Contiguous Component Labeling | O(N+Q) | O(N) |
 | 3474 | [Lexicographically Smallest Generated String](./Strings/3474_Lexicographically_Smallest_Generated.py) | Hard | KMP Automaton / Backtracking | O(N+M) | O(N+M) |
 | 3499 | [Maximize Active Section with Trade I](./Strings/3499_Maximize_Active_Section_Trade.py) | Medium | itertools.groupby & The 1-Refund Illusion | O(N) | O(N) |
@@ -261,11 +262,11 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 128
+Total Problems: 129
 
 Easy: 39
 
-Medium: 60
+Medium: 61
 
 Hard: 29  
 
@@ -283,7 +284,7 @@ Last updated: Daily
 | DFS / Trees                | 212, 1022, 1382, 2196 |
 | Dynamic Programming        | 799, 1320, 1340, 1594, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
 | Prefix / Range Queries     | 2906, 3070, 3212, 3546, 3635, 3660, 3714, 3721, 3737, 3739, 3756 |
-| Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 3379, 3499, 3633, 3637 |
+| Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 3379, 3499, 3517, 3633, 3637 |
 | Brute Force / Recursion    | 761, 1545, 3713, 3719 |
 | Graphs    | 1391, 1559, 2812, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
@@ -381,6 +382,8 @@ Last updated: Daily
 **628. Maximum Product of Three Numbers**: Bypasses the combinatorial overhead of checking all possible triplets by mathematically analyzing the sign-flipping properties of integer multiplication. Because the product of two negative numbers yields a positive scalar, the maximum possible product is guaranteed to be either the three largest elements (`max1 * max2 * max3`) or the two smallest negative elements multiplied by the largest element (`min1 * min2 * max1`). The Pythonic solution resolves this in $O(N \log N)$ via sorting, while the optimal bare-metal variant executes in strictly $O(N)$ time and $O(1)$ auxiliary space by sweeping the array once with a five-variable extreme value tracker.
 
 **1464. Maximum Product of Two Elements in an Array**: Completes the extreme-value product trilogy by evaluating array pairs under a decremented transformation. Because problem constraints guarantee strictly positive integers ($nums[i] \ge 1$), subtracting $1$ preserves order monotonicity without introducing negative-sign inversion traps. The algorithm bypasses $O(N^2)$ pairwise evaluations entirely, using an optimal $O(N)$ single-pass linear scan with a dual-champion tracker to isolate the two largest elements in constant $O(1)$ auxiliary memory.
+
+**3517. Smallest Palindromic Rearrangement I**: Bypasses the computational overhead of combinatorial string permutations by exploiting the guaranteed symmetry of palindromic inputs. Because character frequencies remain invariant under permutation, any character exhibiting an odd frequency is mathematically bounded to the center index. The algorithm executes an optimal $O(N)$ frequency scan, constructs the lexicographically smallest left prefix using integer division (`count // 2`) across sorted character keys, and mirrors the prefix in constant time to construct the final palindrome.
 
 ### Complex Logic
 
