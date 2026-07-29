@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-129-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-130-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -124,6 +124,7 @@ LeetCode-Solutions-Python/
 | 2840 | [Check if Strings Can be Made Equal With Operations II](./Strings/2840_Check_if_Strings_Can_be_Made_Equal_II.py) | Medium | Parity Grouping + Frequency Map | O(N) | O(1) |
 | 3501 | [Maximize Active Section with Trade II](./Strings/3501_Maximize_Active_Section_Trade_II.py) | Hard | Sparse Table (RMQ) & Block Parsing | O(NlogN+QlogM) | O(NlogN) |
 | 3517 | [Smallest Palindromic Rearrangement I](./Strings/3517_Smallest_Palindromic_Rearrangement_I.py) | Medium | Alphabetical Frequency Half-Build & Mirroring | O(N) | O(N) |
+| 3518 | [Smallest Palindromic Rearrangement II](./Strings/3518_Smallest_Palindromic_Rearrangement_II.py) | Hard | Combinatorial Prefix Skipping | O(N) | O(N) |
 | 3532 | [Path Existence Queries in a Graph I](./Graphs/3532_Path_Existence_Queries_in_a_Graph_I.py) | Medium | Sorted Contiguous Component Labeling | O(N+Q) | O(N) |
 | 3474 | [Lexicographically Smallest Generated String](./Strings/3474_Lexicographically_Smallest_Generated.py) | Hard | KMP Automaton / Backtracking | O(N+M) | O(N+M) |
 | 3499 | [Maximize Active Section with Trade I](./Strings/3499_Maximize_Active_Section_Trade.py) | Medium | itertools.groupby & The 1-Refund Illusion | O(N) | O(N) |
@@ -262,13 +263,13 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 129
+Total Problems: 130
 
 Easy: 39
 
 Medium: 61
 
-Hard: 29  
+Hard: 30 
 
 Last updated: Daily  
 
@@ -289,7 +290,7 @@ Last updated: Daily
 | Graphs    | 1391, 1559, 2812, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
 | Backtracking / Decision Tree | 37, 401, 1415 |
-| Math / Modular Arithmetic  | 628, 1464, 1622, 1979, 2033, 3300, 3312,3536, 3558, 3658, 3754, 3783, 3867 |
+| Math / Modular Arithmetic  | 628, 1464, 1622, 1979, 2033, 3300, 3312, 3518, 3536, 3558, 3658, 3754, 3783, 3867 |
 | Matrix / 2D Traversal      | 1260, 1582, 1594, 1727, 1878, 1886, 2906, 2946, 3070, 3212, 3546, 3548, 3567, 3643 |
 | String Manipulation / Parity | 2451, 2839, 2840 |
 | Arrays / Circular Traversal | 2515 |
@@ -470,6 +471,8 @@ Last updated: Daily
 **3513. Number of Unique XOR Triplets I**: Bypasses the catastrophic $O(N^3)$ Time Limit Exceeded (TLE) error of nested triplet simulation by capitalizing on the array's permutation properties. Recognizing that an input containing all integers from $1$ to $n$ can trivially generate $0$ (via $1 \oplus 2 \oplus 3 = 0$) and any original element $y$ (via $x \oplus x \oplus y = y$), the algorithm proves that valid triplets completely saturate the binary vector space up to $n$'s highest bit. This reduces the entire resolution to evaluating the power-of-two ceiling $2^k$ (where $k$ is the bit length of $n$), executing in strictly $O(1)$ constant time with zero auxiliary memory.
 
 **3514. Number of Unique XOR Triplets II**: Marks the **60th Medium Problem Milestone**! Bypasses the catastrophic $O(N^3)$ Time Limit Exceeded (TLE) error of evaluating all three-element combinations by implementing a 2-Step Pairwise XOR Sieve. Capitalizing on the commutative properties of XOR and the constraint bounding $\text{nums}[i] \le 1500$, the algorithm first computes all achievable pairwise XORs into a bounded boolean array of size $2^{\lfloor \log_2(\max) \rfloor + 1} \le 2048$. It then combines these intermediate states with the unique elements of the array in a secondary linear pass, reducing the computational complexity from billions of operations down to an ultra-lean $O(U^2 + P \times U)$ execution time.
+
+**3518. Smallest Palindromic Rearrangement II**: Marks the titanic **30th Hard Problem Milestone**! Bypasses the catastrophic $O(N!)$ combinatorial bottleneck of generating consecutive permutations by implementing an $O(N)$ Prefix Skipping mathematical model. By calculating the total subset permutations via the multinomial theorem, the algorithm evaluates positional character placement dynamically. If a character's subset permutations fall below the target $k$, the entire block is mathematically skipped ($k = k - \text{sub\_perms}$), bypassing millions of recursive branch calculations. The subset permutations are updated in strictly $O(1)$ time per placement via the relation $P_{new} = P_{old} \times \frac{count}{N}$, entirely avoiding iterative factorial recalculation.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
