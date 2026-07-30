@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-130-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-131-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -122,6 +122,7 @@ LeetCode-Solutions-Python/
 | 2833 | [Furthest Point From Origin](./Strings/2833_Furthest_Point_From_Origin.py) | Easy | Greedy / Counting | O(N) | O(1) |
 | 2839 | [Check if Strings Can be Made Equal With Operations I](./Strings/2839_Check_if_Strings_Can_be_Made_Equal.py) | Easy | Parity Grouping + Sorting | O(1) | O(1) |
 | 2840 | [Check if Strings Can be Made Equal With Operations II](./Strings/2840_Check_if_Strings_Can_be_Made_Equal_II.py) | Medium | Parity Grouping + Frequency Map | O(N) | O(1) |
+| 3014 | [Minimum Number of Pushes to Type Word I](./Strings/3014_Minimum_Number_of_Pushes_to_Type_Word_I.py) | Easy | Greedy Tier Allocation & String Length | O(1) | O(1) |
 | 3501 | [Maximize Active Section with Trade II](./Strings/3501_Maximize_Active_Section_Trade_II.py) | Hard | Sparse Table (RMQ) & Block Parsing | O(NlogN+QlogM) | O(NlogN) |
 | 3517 | [Smallest Palindromic Rearrangement I](./Strings/3517_Smallest_Palindromic_Rearrangement_I.py) | Medium | Alphabetical Frequency Half-Build & Mirroring | O(N) | O(N) |
 | 3518 | [Smallest Palindromic Rearrangement II](./Strings/3518_Smallest_Palindromic_Rearrangement_II.py) | Hard | Combinatorial Prefix Skipping | O(N) | O(N) |
@@ -263,9 +264,9 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 130
+Total Problems: 131
 
-Easy: 39
+Easy: 40
 
 Medium: 61
 
@@ -285,7 +286,7 @@ Last updated: Daily
 | DFS / Trees                | 212, 1022, 1382, 2196 |
 | Dynamic Programming        | 799, 1320, 1340, 1594, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
 | Prefix / Range Queries     | 2906, 3070, 3212, 3546, 3635, 3660, 3714, 3721, 3737, 3739, 3756 |
-| Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 3379, 3499, 3517, 3633, 3637 |
+| Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 3014, 3379, 3499, 3517, 3633, 3637 |
 | Brute Force / Recursion    | 761, 1545, 3713, 3719 |
 | Graphs    | 1391, 1559, 2812, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
@@ -385,6 +386,8 @@ Last updated: Daily
 **1464. Maximum Product of Two Elements in an Array**: Completes the extreme-value product trilogy by evaluating array pairs under a decremented transformation. Because problem constraints guarantee strictly positive integers ($nums[i] \ge 1$), subtracting $1$ preserves order monotonicity without introducing negative-sign inversion traps. The algorithm bypasses $O(N^2)$ pairwise evaluations entirely, using an optimal $O(N)$ single-pass linear scan with a dual-champion tracker to isolate the two largest elements in constant $O(1)$ auxiliary memory.
 
 **3517. Smallest Palindromic Rearrangement I**: Bypasses the computational overhead of combinatorial string permutations by exploiting the guaranteed symmetry of palindromic inputs. Because character frequencies remain invariant under permutation, any character exhibiting an odd frequency is mathematically bounded to the center index. The algorithm executes an optimal $O(N)$ frequency scan, constructs the lexicographically smallest left prefix using integer division (`count // 2`) across sorted character keys, and mirrors the prefix in constant time to construct the final palindrome.
+
+**3014. Minimum Number of Pushes to Type Word I**: Demonstrates an elegant greedy simplification by capitalizing on the guarantee of unique characters. Bypassing character frequency analysis entirely, the algorithm mathematically distributes the string's length across 8 available hardware keys tier-by-tier. This abstraction reduces string processing to a pure mathematical constant-time execution utilizing integer division and boundary constraints.
 
 ### Complex Logic
 
