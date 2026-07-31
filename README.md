@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-131-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-132-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -123,6 +123,7 @@ LeetCode-Solutions-Python/
 | 2839 | [Check if Strings Can be Made Equal With Operations I](./Strings/2839_Check_if_Strings_Can_be_Made_Equal.py) | Easy | Parity Grouping + Sorting | O(1) | O(1) |
 | 2840 | [Check if Strings Can be Made Equal With Operations II](./Strings/2840_Check_if_Strings_Can_be_Made_Equal_II.py) | Medium | Parity Grouping + Frequency Map | O(N) | O(1) |
 | 3014 | [Minimum Number of Pushes to Type Word I](./Strings/3014_Minimum_Number_of_Pushes_to_Type_Word_I.py) | Easy | Greedy Tier Allocation & String Length | O(1) | O(1) |
+| 3016 | [Minimum Number of Pushes to Type Word II](./Strings/3016_Minimum_Number_of_Pushes_to_Type_Word_II.py) | Medium | Greedy Frequency Tier Allocation & 26-Array Sieve | O(N) | O(1) |
 | 3501 | [Maximize Active Section with Trade II](./Strings/3501_Maximize_Active_Section_Trade_II.py) | Hard | Sparse Table (RMQ) & Block Parsing | O(NlogN+QlogM) | O(NlogN) |
 | 3517 | [Smallest Palindromic Rearrangement I](./Strings/3517_Smallest_Palindromic_Rearrangement_I.py) | Medium | Alphabetical Frequency Half-Build & Mirroring | O(N) | O(N) |
 | 3518 | [Smallest Palindromic Rearrangement II](./Strings/3518_Smallest_Palindromic_Rearrangement_II.py) | Hard | Combinatorial Prefix Skipping | O(N) | O(N) |
@@ -264,11 +265,11 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 131
+Total Problems: 132
 
 Easy: 40
 
-Medium: 61
+Medium: 62
 
 Hard: 30 
 
@@ -280,7 +281,7 @@ Last updated: Daily
 
 | Core Category              | Problems |
 |----------------------------|----------|
-| Greedy / Sorting           | 1536, 1689, 1727, 1846, 2144, 2833, 3010, 3634 |
+| Greedy / Sorting           | 1536, 1689, 1727, 1846, 2144, 2833, 3010, 3016, 3634 |
 | Sliding Window             | 42, 1358, 1461, 1848, 1871 |
 | Manipulation           | 67, 190, 401, 693, 762, 868, 1009, 1356, 1404, 1680, 1855, 3666 |
 | DFS / Trees                | 212, 1022, 1382, 2196 |
@@ -476,6 +477,8 @@ Last updated: Daily
 **3514. Number of Unique XOR Triplets II**: Marks the **60th Medium Problem Milestone**! Bypasses the catastrophic $O(N^3)$ Time Limit Exceeded (TLE) error of evaluating all three-element combinations by implementing a 2-Step Pairwise XOR Sieve. Capitalizing on the commutative properties of XOR and the constraint bounding $\text{nums}[i] \le 1500$, the algorithm first computes all achievable pairwise XORs into a bounded boolean array of size $2^{\lfloor \log_2(\max) \rfloor + 1} \le 2048$. It then combines these intermediate states with the unique elements of the array in a secondary linear pass, reducing the computational complexity from billions of operations down to an ultra-lean $O(U^2 + P \times U)$ execution time.
 
 **3518. Smallest Palindromic Rearrangement II**: Marks the titanic **30th Hard Problem Milestone**! Bypasses the catastrophic $O(N!)$ combinatorial bottleneck of generating consecutive permutations by implementing an $O(N)$ Prefix Skipping mathematical model. By calculating the total subset permutations via the multinomial theorem, the algorithm evaluates positional character placement dynamically. If a character's subset permutations fall below the target $k$, the entire block is mathematically skipped ($k = k - \text{sub\_perms}$), bypassing millions of recursive branch calculations. The subset permutations are updated in strictly $O(1)$ time per placement via the relation $P_{new} = P_{old} \times \frac{count}{N}$, entirely avoiding iterative factorial recalculation.
+
+**3016. Minimum Number of Pushes to Type Word II**: Expands on the hardware mapping abstraction of Part I by introducing character recurrence. To minimize global traversal costs across the 8-key matrix, the algorithm executes a complete $O(N)$ character frequency sieve utilizing a fixed 26-element array. By sorting the extracted frequencies descending in $O(1)$ constant time, the system greedily locks the highest-density characters to the shallowest key depths (`multiplier = i // 8 + 1`), bypassing the overhead of simulating specific character-to-key positional assignments entirely.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
