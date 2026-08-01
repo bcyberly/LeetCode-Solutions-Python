@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-132-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-133-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -170,6 +170,7 @@ LeetCode-Solutions-Python/
 
 | # | Problem | Difficulty | Approach | Time | Space |
 |---|---------|------------|----------|------|-------|
+| 486 | [Predict the Winner](./DynamicProgramming/0486_Predict_the_Winner.py) | Medium | Minimax DP Net-Difference Relation & 1D Space Optimization | O(N^2) | O(N) |
 | 799 | [Champagne Tower](./DynamicProgramming/0799_Champagne_Tower.py) | Medium | Simulation + DP (In-place) | O(R²) | O(R) |
 | 1320 | [Minimum Distance to Type a Word Using Two Fingers](./DynamicProgramming/1320_Min_Distance_Type_Word_Two_Fingers.py) | Hard | Top-Down DP (State Compression) | O(N) | O(N) |
 | 1340 | [Jump Game V](./DynamicProgramming/1340_Jump_Game_V.py) | Hard | Top-Down DP (Memoization) / DAG Traversal | O(N*d) | O(N) |
@@ -265,11 +266,11 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 132
+Total Problems: 133
 
 Easy: 40
 
-Medium: 62
+Medium: 63
 
 Hard: 30 
 
@@ -285,7 +286,7 @@ Last updated: Daily
 | Sliding Window             | 42, 1358, 1461, 1848, 1871 |
 | Manipulation           | 67, 190, 401, 693, 762, 868, 1009, 1356, 1404, 1680, 1855, 3666 |
 | DFS / Trees                | 212, 1022, 1382, 2196 |
-| Dynamic Programming        | 799, 1320, 1340, 1594, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
+| Dynamic Programming        | 486, 799, 1320, 1340, 1594, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
 | Prefix / Range Queries     | 2906, 3070, 3212, 3546, 3635, 3660, 3714, 3721, 3737, 3739, 3756 |
 | Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 3014, 3379, 3499, 3517, 3633, 3637 |
 | Brute Force / Recursion    | 761, 1545, 3713, 3719 |
@@ -479,6 +480,8 @@ Last updated: Daily
 **3518. Smallest Palindromic Rearrangement II**: Marks the titanic **30th Hard Problem Milestone**! Bypasses the catastrophic $O(N!)$ combinatorial bottleneck of generating consecutive permutations by implementing an $O(N)$ Prefix Skipping mathematical model. By calculating the total subset permutations via the multinomial theorem, the algorithm evaluates positional character placement dynamically. If a character's subset permutations fall below the target $k$, the entire block is mathematically skipped ($k = k - \text{sub\_perms}$), bypassing millions of recursive branch calculations. The subset permutations are updated in strictly $O(1)$ time per placement via the relation $P_{new} = P_{old} \times \frac{count}{N}$, entirely avoiding iterative factorial recalculation.
 
 **3016. Minimum Number of Pushes to Type Word II**: Expands on the hardware mapping abstraction of Part I by introducing character recurrence. To minimize global traversal costs across the 8-key matrix, the algorithm executes a complete $O(N)$ character frequency sieve utilizing a fixed 26-element array. By sorting the extracted frequencies descending in $O(1)$ constant time, the system greedily locks the highest-density characters to the shallowest key depths (`multiplier = i // 8 + 1`), bypassing the overhead of simulating specific character-to-key positional assignments entirely.
+
+**486. Predict the Winner**: Deconstructs a two-player zero-sum game by implementing a Minimax Dynamic Programming model. By replacing independent dual-player score tracking with a singular "Net-Difference" recurrence relation (`max(nums[left] - dp(left+1), nums[right] - dp(right-1))`), the algorithm beautifully encapsulates optimal opponent simulation. Furthermore, it mathematically proves that for any array of even length, Player 1 possesses a deterministic winning strategy by manipulating parity boundaries, returning an immediate $O(1)$ evaluation for half of all possible inputs before executing the $O(N)$ space-optimized bottom-up DP matrix.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
