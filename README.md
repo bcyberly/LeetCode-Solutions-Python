@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-133-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-134-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -213,6 +213,7 @@ LeetCode-Solutions-Python/
 |---|---------|------------|----------|------|-------|
 | 628 | [Maximum Product of Three Numbers](./Math/0628_Maximum_Product_of_Three_Numbers.py) | Easy | Dual-Extreme Comparison & O(N) Single-Pass Scan | O(N) | O(1) |
 | 1622 | [Fancy Sequence](./Math/1622_Fancy_Sequence.py) | Hard | Modular Inverse (Fermat's Little Theorem) | O(1)* | O(N) |
+| 877 | [Stone Game](./Math/0877_Stone_Game.py) | Medium | Game Theory Parity Strategy | O(1) | O(1) |
 | 1979 | [Find Greatest Common Divisor of Array](./Math/1979_Find_Greatest_Common_Divisor_of_Array.py) | Easy | O(N) Min-Max Scan & Euclidean Algorithm | O(N) | O(1) |
 | 2033 | [Minimum Operations to Make a Uni-Value Grid](./Math/2033_Min_Operations_Uni_Value_Grid.py) | Medium | Median Minimization / Modulo Math | O(N log N) | O(N) |
 | 3312 | [Sorted GCD Pair Queries](./Math/3312_Sorted_GCD_Pair_Queries.py) | Hard | Inclusion-Exclusion Sieve & Prefix Binary Search | O(M log M) | O(M) |
@@ -266,11 +267,11 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 133
+Total Problems: 134
 
 Easy: 40
 
-Medium: 63
+Medium: 64
 
 Hard: 30 
 
@@ -293,7 +294,7 @@ Last updated: Daily
 | Graphs    | 1391, 1559, 2812, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
 | Backtracking / Decision Tree | 37, 401, 1415 |
-| Math / Modular Arithmetic  | 628, 1464, 1622, 1979, 2033, 3300, 3312, 3518, 3536, 3558, 3658, 3754, 3783, 3867 |
+| Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1979, 2033, 3300, 3312, 3518, 3536, 3558, 3658, 3754, 3783, 3867 |
 | Matrix / 2D Traversal      | 1260, 1582, 1594, 1727, 1878, 1886, 2906, 2946, 3070, 3212, 3546, 3548, 3567, 3643 |
 | String Manipulation / Parity | 2451, 2839, 2840 |
 | Arrays / Circular Traversal | 2515 |
@@ -482,6 +483,8 @@ Last updated: Daily
 **3016. Minimum Number of Pushes to Type Word II**: Expands on the hardware mapping abstraction of Part I by introducing character recurrence. To minimize global traversal costs across the 8-key matrix, the algorithm executes a complete $O(N)$ character frequency sieve utilizing a fixed 26-element array. By sorting the extracted frequencies descending in $O(1)$ constant time, the system greedily locks the highest-density characters to the shallowest key depths (`multiplier = i // 8 + 1`), bypassing the overhead of simulating specific character-to-key positional assignments entirely.
 
 **486. Predict the Winner**: Deconstructs a two-player zero-sum game by implementing a Minimax Dynamic Programming model. By replacing independent dual-player score tracking with a singular "Net-Difference" recurrence relation (`max(nums[left] - dp(left+1), nums[right] - dp(right-1))`), the algorithm beautifully encapsulates optimal opponent simulation. Furthermore, it mathematically proves that for any array of even length, Player 1 possesses a deterministic winning strategy by manipulating parity boundaries, returning an immediate $O(1)$ evaluation for half of all possible inputs before executing the $O(N)$ space-optimized bottom-up DP matrix.
+
+**877. Stone Game**: Serves as a perfect mathematical corollary to the Minimax algorithm constructed in *Predict the Winner*. By enforcing an even array length and an odd summation total, the problem's constraints inadvertently transform it from a dynamic programming sequence into a pure Game Theory parity puzzle. The algorithm recognizes that the first player can perpetually dictate the selection phase, forcing the opponent into a mathematically inescapable parity trap, resolving the entire problem in strictly $O(1)$ constant time without ever traversing the array.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
