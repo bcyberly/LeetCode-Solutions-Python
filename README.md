@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-134-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-135-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -174,6 +174,7 @@ LeetCode-Solutions-Python/
 | 799 | [Champagne Tower](./DynamicProgramming/0799_Champagne_Tower.py) | Medium | Simulation + DP (In-place) | O(R²) | O(R) |
 | 1320 | [Minimum Distance to Type a Word Using Two Fingers](./DynamicProgramming/1320_Min_Distance_Type_Word_Two_Fingers.py) | Hard | Top-Down DP (State Compression) | O(N) | O(N) |
 | 1340 | [Jump Game V](./DynamicProgramming/1340_Jump_Game_V.py) | Hard | Top-Down DP (Memoization) / DAG Traversal | O(N*d) | O(N) |
+| 1406 | [Stone Game III](./DynamicProgramming/1406_Stone_Game_III.py) | Hard | Minimax Net-Difference DP & O(1) Sliding Window | O(N) | O(1) |
 | 1594 | [Maximum Non Negative Product in a Matrix](./DynamicProgramming/1594_Max_Non_Negative_Product_Matrix.py) | Medium | 2D DP (Min/Max Dual-State) | O(M*N) | O(M*N) |
 | 1871 | [Jump Game VII](./DynamicProgramming/1871_Jump_Game_VII.py) | Medium | 1D DP + Sliding Window Count | O(N) | O(N) |
 | 2463 | [Minimum Total Distance Traveled](./DynamicProgramming/2463_Min_Total_Distance_Traveled.py) | Hard | Top-Down DP (Capacity Batching) | O(R² * F) | O(R * F) |
@@ -267,13 +268,13 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 134
+Total Problems: 135
 
 Easy: 40
 
 Medium: 64
 
-Hard: 30 
+Hard: 31 
 
 Last updated: Daily  
 
@@ -287,7 +288,7 @@ Last updated: Daily
 | Sliding Window             | 42, 1358, 1461, 1848, 1871 |
 | Manipulation           | 67, 190, 401, 693, 762, 868, 1009, 1356, 1404, 1680, 1855, 3666 |
 | DFS / Trees                | 212, 1022, 1382, 2196 |
-| Dynamic Programming        | 486, 799, 1320, 1340, 1594, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
+| Dynamic Programming        | 486, 799, 1320, 1340, 1406, 1594, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
 | Prefix / Range Queries     | 2906, 3070, 3212, 3546, 3635, 3660, 3714, 3721, 3737, 3739, 3756 |
 | Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 3014, 3379, 3499, 3517, 3633, 3637 |
 | Brute Force / Recursion    | 761, 1545, 3713, 3719 |
@@ -485,6 +486,8 @@ Last updated: Daily
 **486. Predict the Winner**: Deconstructs a two-player zero-sum game by implementing a Minimax Dynamic Programming model. By replacing independent dual-player score tracking with a singular "Net-Difference" recurrence relation (`max(nums[left] - dp(left+1), nums[right] - dp(right-1))`), the algorithm beautifully encapsulates optimal opponent simulation. Furthermore, it mathematically proves that for any array of even length, Player 1 possesses a deterministic winning strategy by manipulating parity boundaries, returning an immediate $O(1)$ evaluation for half of all possible inputs before executing the $O(N)$ space-optimized bottom-up DP matrix.
 
 **877. Stone Game**: Serves as a perfect mathematical corollary to the Minimax algorithm constructed in *Predict the Winner*. By enforcing an even array length and an odd summation total, the problem's constraints inadvertently transform it from a dynamic programming sequence into a pure Game Theory parity puzzle. The algorithm recognizes that the first player can perpetually dictate the selection phase, forcing the opponent into a mathematically inescapable parity trap, resolving the entire problem in strictly $O(1)$ constant time without ever traversing the array.
+
+**1406. Stone Game III**: Elevates the zero-sum Minimax DP architecture by introducing multi-branch sequential selection. By iterating backward from the terminal state, the algorithm evaluates up to three distinct extraction choices ($k \in \{1, 2, 3\}$), perpetually maximizing the current player's net score advantage against the opponent's optimized future state (`max(take - dp[i+k])`). The implementation subsequently refines the $O(N)$ linear array down to strict $O(1)$ constant auxiliary memory by employing a three-variable sliding window to track the cascading subproblem states.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
