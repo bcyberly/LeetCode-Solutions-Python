@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-136-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-137-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -206,6 +206,7 @@ LeetCode-Solutions-Python/
 | 1391 | [Check if There is a Valid Path in a Grid](./Graphs/1391_Valid_Path_in_Grid.py) | Medium | BFS / Grid Traversal | O(M*N) | O(M*N) |
 | 1559 | [Detect Cycles in 2D Grid](./Graphs/1559_Detect_Cycles_in_2D_Grid.py) | Medium | BFS / Cycle Detection | O(M*N) | O(M*N) |
 | 1722 | [Minimize Hamming Distance After Swap Operations](./Graphs/1722_Min_Hamming_Distance_Swaps.py) | Medium | Union-Find / Connected Components | O(N) | O(N) |
+| 3310 | [Remove Methods From Project](./Graphs/3310_Remove_Methods_From_Project.py) | Medium | Two-Phase BFS Infection & Isolation Check | O(V+E) | O(V+E) |
 | 3600 | [Maximize Spanning Tree Stability with Upgrades](./Graphs/3600._Maximize_Spanning_Tree_Stability_with_Uprades.py) | Hard | Binary Search on Answer + Kruskal's (DSU) | O(E log M) | O(V + E) |
 
 
@@ -269,11 +270,11 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 136
+Total Problems: 137
 
 Easy: 41
 
-Medium: 64
+Medium: 65
 
 Hard: 31 
 
@@ -293,7 +294,7 @@ Last updated: Daily
 | Prefix / Range Queries     | 2906, 3070, 3212, 3546, 3635, 3660, 3714, 3721, 3737, 3739, 3756 |
 | Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 3014, 3379, 3499, 3517, 3633, 3637 |
 | Brute Force / Recursion    | 761, 1545, 3713, 3719 |
-| Graphs    | 1391, 1559, 2812, 3532, 3600 |
+| Graphs    | 1391, 1559, 2812, 3310, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
 | Backtracking / Decision Tree | 37, 401, 1415 |
 | Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1979, 2033, 3300, 3312, 3518, 3536, 3558, 3658, 3754, 3783, 3867 |
@@ -491,6 +492,8 @@ Last updated: Daily
 **877. Stone Game**: Serves as a perfect mathematical corollary to the Minimax algorithm constructed in *Predict the Winner*. By enforcing an even array length and an odd summation total, the problem's constraints inadvertently transform it from a dynamic programming sequence into a pure Game Theory parity puzzle. The algorithm recognizes that the first player can perpetually dictate the selection phase, forcing the opponent into a mathematically inescapable parity trap, resolving the entire problem in strictly $O(1)$ constant time without ever traversing the array.
 
 **1406. Stone Game III**: Elevates the zero-sum Minimax DP architecture by introducing multi-branch sequential selection. By iterating backward from the terminal state, the algorithm evaluates up to three distinct extraction choices ($k \in \{1, 2, 3\}$), perpetually maximizing the current player's net score advantage against the opponent's optimized future state (`max(take - dp[i+k])`). The implementation subsequently refines the $O(N)$ linear array down to strict $O(1)$ constant auxiliary memory by employing a three-variable sliding window to track the cascading subproblem states.
+
+**3310. Remove Methods From Project**: Models complex software dependency chains utilizing a two-phase Directed Graph traversal. The algorithm leverages an $O(V+E)$ Breadth-First Search (BFS) to map the transitive closure of the buggy node, isolating the "infected" subgraph. A subsequent $O(E)$ edge validation pass guarantees project stability by ensuring no external nodes depend on the isolated subgraph (`u ∉ suspicious ∧ v ∈ suspicious`), gracefully returning the exact remaining active methods.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
