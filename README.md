@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-137-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-138-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -220,6 +220,7 @@ LeetCode-Solutions-Python/
 | 1979 | [Find Greatest Common Divisor of Array](./Math/1979_Find_Greatest_Common_Divisor_of_Array.py) | Easy | O(N) Min-Max Scan & Euclidean Algorithm | O(N) | O(1) |
 | 2033 | [Minimum Operations to Make a Uni-Value Grid](./Math/2033_Min_Operations_Uni_Value_Grid.py) | Medium | Median Minimization / Modulo Math | O(N log N) | O(N) |
 | 3312 | [Sorted GCD Pair Queries](./Math/3312_Sorted_GCD_Pair_Queries.py) | Hard | Inclusion-Exclusion Sieve & Prefix Binary Search | O(M log M) | O(M) |
+| 3345 | [Smallest Divisible Digit Product I](./Math/3345_Smallest_Divisible_Digit_Product_I.py) | Easy | Modulo Arithmetic & Zero-Digit Ceiling | O(1) | O(1) |
 | 3536 | [Maximum Product of Two Digits](./Math/3536_Maximum_Product_of_Two_Digits.py) | Easy | Top-Two Digit Extraction & Modulo Arithmetic | O(d) | O(1) |
 | 3658 | [GCD of Odd and Even Sums](./Math/3658_GCD_of_Odd_and_Even_Sums.py) | Easy | Mathematical Simplification | O(1) | O(1) |
 | 3754 | [Concatenate Non-Zero Digits and Multiply by Sum I](./Math/3754_Concatenate_Non_Zero_Digits_and_Multiply_by_Sum_I.py) | Easy | String Filtering & Digit Sum Math | O(D) | O(D) |
@@ -270,9 +271,9 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 137
+Total Problems: 138
 
-Easy: 41
+Easy: 42
 
 Medium: 65
 
@@ -297,7 +298,7 @@ Last updated: Daily
 | Graphs    | 1391, 1559, 2812, 3310, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
 | Backtracking / Decision Tree | 37, 401, 1415 |
-| Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1979, 2033, 3300, 3312, 3518, 3536, 3558, 3658, 3754, 3783, 3867 |
+| Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1979, 2033, 3300, 3312, 3345, 3518, 3536, 3558, 3658, 3754, 3783, 3867 |
 | Matrix / 2D Traversal      | 1260, 1582, 1594, 1727, 1878, 1886, 2906, 2946, 3070, 3212, 3546, 3548, 3567, 3643 |
 | String Manipulation / Parity | 2451, 2839, 2840 |
 | Arrays / Circular Traversal | 2515 |
@@ -396,6 +397,8 @@ Last updated: Daily
 **3014. Minimum Number of Pushes to Type Word I**: Demonstrates an elegant greedy simplification by capitalizing on the guarantee of unique characters. Bypassing character frequency analysis entirely, the algorithm mathematically distributes the string's length across 8 available hardware keys tier-by-tier. This abstraction reduces string processing to a pure mathematical constant-time execution utilizing integer division and boundary constraints.
 
 **3731. Find Missing Elements**: Bypasses the $O(N \log N)$ penalty of array sorting by capitalizing on the implicit boundaries given in the constraints. By converting the input array into a Hash Set for $O(1)$ constant-time lookups, the algorithm efficiently sweeps the exact bounded integer range (`min(nums)` to `max(nums)`), appending missing elements in a naturally sorted order. The alternative Pythonic one-liner leverages optimized C-backend set difference operations (`set(range) - set(nums)`) for extreme syntactical elegance.
+
+**3345. Smallest Divisible Digit Product I**: Showcases how mathematical boundary analysis reduces an apparently unbounded `while` loop into a strict $O(1)$ constant-time execution. By identifying the "Zero-Digit Ceiling," the algorithm recognizes that incrementing `n` will inherently produce a trailing zero within at most 10 iterations. Since a zero-digit cascades the multiplicative product to $0$—which satisfies any modulo target $t$—the execution strictly bypasses the risk of Time Limit Exceeded (TLE) errors using space-optimized in-place digit peeling (`n % 10`).
 
 ### Complex Logic
 
