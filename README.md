@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-138-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-139-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -221,6 +221,7 @@ LeetCode-Solutions-Python/
 | 2033 | [Minimum Operations to Make a Uni-Value Grid](./Math/2033_Min_Operations_Uni_Value_Grid.py) | Medium | Median Minimization / Modulo Math | O(N log N) | O(N) |
 | 3312 | [Sorted GCD Pair Queries](./Math/3312_Sorted_GCD_Pair_Queries.py) | Hard | Inclusion-Exclusion Sieve & Prefix Binary Search | O(M log M) | O(M) |
 | 3345 | [Smallest Divisible Digit Product I](./Math/3345_Smallest_Divisible_Digit_Product_I.py) | Easy | Modulo Arithmetic & Zero-Digit Ceiling | O(1) | O(1) |
+| 3348 | [Smallest Divisible Digit Product II](./Math/3348_Smallest_Divisible_Digit_Product_II.py) | Hard | Prime Factor DP & Fast-Forward Suffix Generation | O(N) | O(N) |
 | 3536 | [Maximum Product of Two Digits](./Math/3536_Maximum_Product_of_Two_Digits.py) | Easy | Top-Two Digit Extraction & Modulo Arithmetic | O(d) | O(1) |
 | 3658 | [GCD of Odd and Even Sums](./Math/3658_GCD_of_Odd_and_Even_Sums.py) | Easy | Mathematical Simplification | O(1) | O(1) |
 | 3754 | [Concatenate Non-Zero Digits and Multiply by Sum I](./Math/3754_Concatenate_Non_Zero_Digits_and_Multiply_by_Sum_I.py) | Easy | String Filtering & Digit Sum Math | O(D) | O(D) |
@@ -271,13 +272,13 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 138
+Total Problems: 139
 
 Easy: 42
 
 Medium: 65
 
-Hard: 31 
+Hard: 32 
 
 Last updated: Daily  
 
@@ -298,7 +299,7 @@ Last updated: Daily
 | Graphs    | 1391, 1559, 2812, 3310, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
 | Backtracking / Decision Tree | 37, 401, 1415 |
-| Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1979, 2033, 3300, 3312, 3345, 3518, 3536, 3558, 3658, 3754, 3783, 3867 |
+| Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1979, 2033, 3300, 3312, 3345, 3348, 3518, 3536, 3558, 3658, 3754, 3783, 3867 |
 | Matrix / 2D Traversal      | 1260, 1582, 1594, 1727, 1878, 1886, 2906, 2946, 3070, 3212, 3546, 3548, 3567, 3643 |
 | String Manipulation / Parity | 2451, 2839, 2840 |
 | Arrays / Circular Traversal | 2515 |
@@ -497,6 +498,8 @@ Last updated: Daily
 **1406. Stone Game III**: Elevates the zero-sum Minimax DP architecture by introducing multi-branch sequential selection. By iterating backward from the terminal state, the algorithm evaluates up to three distinct extraction choices ($k \in \{1, 2, 3\}$), perpetually maximizing the current player's net score advantage against the opponent's optimized future state (`max(take - dp[i+k])`). The implementation subsequently refines the $O(N)$ linear array down to strict $O(1)$ constant auxiliary memory by employing a three-variable sliding window to track the cascading subproblem states.
 
 **3310. Remove Methods From Project**: Models complex software dependency chains utilizing a two-phase Directed Graph traversal. The algorithm leverages an $O(V+E)$ Breadth-First Search (BFS) to map the transitive closure of the buggy node, isolating the "infected" subgraph. A subsequent $O(E)$ edge validation pass guarantees project stability by ensuring no external nodes depend on the isolated subgraph (`u ∉ suspicious ∧ v ∈ suspicious`), gracefully returning the exact remaining active methods.
+
+**3348. Smallest Divisible Digit Product II**: Deconstructs an intensely constrained scaling problem utilizing Prime Factor filtration and constant-space Dynamic Programming. It algorithmically rejects invalid modulo targets harboring prime factors $>7$, mapping valid sub-targets into an ultra-fast 2D DP minimum-digit matrix (`dp[55][35]`). To bypass Time Limit Exceeded (TLE) errors native to Python interpreter overheads at $N = 10^5$, the algorithm precomputes the DP states to strictly guarantee $O(1)$ array lookups. Furthermore, it utilizes a mathematical "Fast-Forward" suffix generator to inject excess `'1'` characters in bulk ($O(1)$ array extensions), synthesizing the lexicographically smallest zero-free string without exhaustive recursive tracing.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
