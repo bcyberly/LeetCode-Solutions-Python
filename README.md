@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-139-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-140-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -183,6 +183,7 @@ LeetCode-Solutions-Python/
 | 3129 | [Find All Possible Stable Binary Arrays I](./DynamicProgramming/3129_Find_All_Possible_Stable_Binary_Arrays_I.py) | Medium | DP with Invalid State Subtraction | O(Z * O) | O(Z * O) |
 | 3130 | [Find All Possible Stable Binary Arrays II](./DynamicProgramming/3130_Find_All_Possible_Stable_Binary_Arrays_II.py) | Hard | DP with Invalid State Subtraction | O(Z * O) | O(Z * O) |
 | 3225 | [Maximum Score From Grid Operations](./DynamicProgramming/3225_Max_Score_Grid_Operations.py) | Hard | DP (State Decoupling) + Prefix Sums | O(N³) | O(N²) |
+| 3302 | [Find the Lexicographically Smallest Valid Sequence](./DynamicProgramming/3302_Find_Lexicographically_Smallest_Sequence.py) | Medium | Right-to-Left Prefix Suffix DP & Greedy Selection | O(N) | O(M) |
 | 3418 | [Maximum Amount of Money Robot Can Earn](./DynamicProgramming/3418_Max_Money_Robot_Can_Earn.py) | Medium | 3D DP (State Tracking) | O(M*N) | O(M*N) |
 | 3661 | [Maximum Walls Destroyed by Robots](./DynamicProgramming/3661_Max_Walls_Destroyed_Robots.py) | Hard | Bounded Intervals + 1D DP | O(R log R + W log W) | O(R + W) |
 | 3699 | [Number of ZigZag Arrays I](./DynamicProgramming/3699_Number_of_ZigZag_Arrays_I.py) | Hard | Directional DP + Prefix/Suffix Sum Sweeps | O(N*K) | O(K) |
@@ -272,11 +273,11 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 139
+Total Problems: 140
 
 Easy: 42
 
-Medium: 65
+Medium: 66
 
 Hard: 32 
 
@@ -289,7 +290,7 @@ Last updated: Daily
 | Core Category              | Problems |
 |----------------------------|----------|
 | Greedy / Sorting           | 1536, 1689, 1727, 1846, 2144, 2833, 3010, 3016, 3634 |
-| Sliding Window             | 42, 1358, 1461, 1848, 1871 |
+| Sliding Window             | 42, 1358, 1461, 1848, 1871, 3302 |
 | Manipulation           | 67, 190, 401, 693, 762, 868, 1009, 1356, 1404, 1680, 1855, 3666 |
 | DFS / Trees                | 212, 1022, 1382, 2196 |
 | Dynamic Programming        | 486, 799, 1320, 1340, 1406, 1594, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
@@ -500,6 +501,8 @@ Last updated: Daily
 **3310. Remove Methods From Project**: Models complex software dependency chains utilizing a two-phase Directed Graph traversal. The algorithm leverages an $O(V+E)$ Breadth-First Search (BFS) to map the transitive closure of the buggy node, isolating the "infected" subgraph. A subsequent $O(E)$ edge validation pass guarantees project stability by ensuring no external nodes depend on the isolated subgraph (`u ∉ suspicious ∧ v ∈ suspicious`), gracefully returning the exact remaining active methods.
 
 **3348. Smallest Divisible Digit Product II**: Deconstructs an intensely constrained scaling problem utilizing Prime Factor filtration and constant-space Dynamic Programming. It algorithmically rejects invalid modulo targets harboring prime factors $>7$, mapping valid sub-targets into an ultra-fast 2D DP minimum-digit matrix (`dp[55][35]`). To bypass Time Limit Exceeded (TLE) errors native to Python interpreter overheads at $N = 10^5$, the algorithm precomputes the DP states to strictly guarantee $O(1)$ array lookups. Furthermore, it utilizes a mathematical "Fast-Forward" suffix generator to inject excess `'1'` characters in bulk ($O(1)$ array extensions), synthesizing the lexicographically smallest zero-free string without exhaustive recursive tracing.
+
+**3302. Find the Lexicographically Smallest Valid Sequence**: Achieves absolute greedy optimality without backtracking by synthesizing a Right-to-Left Dynamic Programming "Safety Net." The algorithm first precomputes the rightmost spatial bounds for exact suffix subsequences in $O(N)$ time (`back[i]`). During the left-to-right greedy index selection, it authorizes the utilization of the single character mutation wildcard *only* if the DP array guarantees the existence of an exact suffix match bounded strictly after the current index (`back[i+1] > j`), yielding the lexicographically smallest index array in a single flawless $O(N)$ pass.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
