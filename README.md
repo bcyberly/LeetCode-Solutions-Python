@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-140-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-141-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -173,6 +173,7 @@ LeetCode-Solutions-Python/
 |---|---------|------------|----------|------|-------|
 | 486 | [Predict the Winner](./DynamicProgramming/0486_Predict_the_Winner.py) | Medium | Minimax DP Net-Difference Relation & 1D Space Optimization | O(N^2) | O(N) |
 | 799 | [Champagne Tower](./DynamicProgramming/0799_Champagne_Tower.py) | Medium | Simulation + DP (In-place) | O(R²) | O(R) |
+| 1140 | [Stone Game II](./DynamicProgramming/1140_Stone_Game_II.py) | Medium | Minimax DP & Suffix Sum Optimization | O(N³) | O(N²) |
 | 1320 | [Minimum Distance to Type a Word Using Two Fingers](./DynamicProgramming/1320_Min_Distance_Type_Word_Two_Fingers.py) | Hard | Top-Down DP (State Compression) | O(N) | O(N) |
 | 1340 | [Jump Game V](./DynamicProgramming/1340_Jump_Game_V.py) | Hard | Top-Down DP (Memoization) / DAG Traversal | O(N*d) | O(N) |
 | 1406 | [Stone Game III](./DynamicProgramming/1406_Stone_Game_III.py) | Hard | Minimax Net-Difference DP & O(1) Sliding Window | O(N) | O(1) |
@@ -273,11 +274,11 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 140
+Total Problems: 141
 
 Easy: 42
 
-Medium: 66
+Medium: 67
 
 Hard: 32 
 
@@ -293,7 +294,7 @@ Last updated: Daily
 | Sliding Window             | 42, 1358, 1461, 1848, 1871, 3302 |
 | Manipulation           | 67, 190, 401, 693, 762, 868, 1009, 1356, 1404, 1680, 1855, 3666 |
 | DFS / Trees                | 212, 1022, 1382, 2196 |
-| Dynamic Programming        | 486, 799, 1320, 1340, 1406, 1594, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
+| Dynamic Programming        | 486, 799, 1140, 1320, 1340, 1406, 1594, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
 | Prefix / Range Queries     | 2906, 3070, 3212, 3546, 3635, 3660, 3714, 3721, 3737, 3739, 3756 |
 | Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 3014, 3379, 3499, 3517, 3633, 3637 |
 | Brute Force / Recursion    | 761, 1545, 3713, 3719 |
@@ -503,6 +504,8 @@ Last updated: Daily
 **3348. Smallest Divisible Digit Product II**: Deconstructs an intensely constrained scaling problem utilizing Prime Factor filtration and constant-space Dynamic Programming. It algorithmically rejects invalid modulo targets harboring prime factors $>7$, mapping valid sub-targets into an ultra-fast 2D DP minimum-digit matrix (`dp[55][35]`). To bypass Time Limit Exceeded (TLE) errors native to Python interpreter overheads at $N = 10^5$, the algorithm precomputes the DP states to strictly guarantee $O(1)$ array lookups. Furthermore, it utilizes a mathematical "Fast-Forward" suffix generator to inject excess `'1'` characters in bulk ($O(1)$ array extensions), synthesizing the lexicographically smallest zero-free string without exhaustive recursive tracing.
 
 **3302. Find the Lexicographically Smallest Valid Sequence**: Achieves absolute greedy optimality without backtracking by synthesizing a Right-to-Left Dynamic Programming "Safety Net." The algorithm first precomputes the rightmost spatial bounds for exact suffix subsequences in $O(N)$ time (`back[i]`). During the left-to-right greedy index selection, it authorizes the utilization of the single character mutation wildcard *only* if the DP array guarantees the existence of an exact suffix match bounded strictly after the current index (`back[i+1] > j`), yielding the lexicographically smallest index array in a single flawless $O(N)$ pass.
+
+**1140. Stone Game II**: Expands the zero-sum Minimax DP architecture by introducing a dynamically scaling action window ($1 \le X \le 2M$). To avoid tracking dual independent player states, the algorithm utilizes a precalculated Suffix Sum array, mapping the global remainder of stones in $O(1)$ time. This allows the optimal localized choice to be resolved purely via opponent subversion (`suffix_sum[i] - dp(i + X, max(m, X))`). The cascading recursion evaluates all localized permutations, achieving global optimality within $O(N^3)$ computational time bounded by $O(N^2)$ memoized states.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
