@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-142-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-143-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -76,6 +76,7 @@ LeetCode-Solutions-Python/
 | 2615 | [Sum of Distances](./Arrays/2615_Sum_of_Distances.py) | Medium | Hash Map + Prefix Sums | O(N) | O(N) |
 | 2657 | [Find the Prefix Common Array of Two Arrays](./Arrays/2657_Find_the_Prefix_Common_Array.py) | Medium | Shared Frequency Array | O(N) | O(N) |
 | 2751 | [Robot Collisions](./Arrays/2751_Robot_Collisions.py) | Hard | Sorting + Stack Simulation | O(N log N) | O(N) |
+| 2996 | [Smallest Missing Integer Greater Than Sequential Prefix Sum](./Arrays/2996_Smallest_Missing_Integer_Greater_Than_Sequential_Prefix_Sum.py) | Easy | Greedy Prefix Break & Hash Set Lookup | O(N) | O(N) |
 | 3010 | [Divide an Array Into Subarrays With Minimum Cost I](./Arrays/3010_Divide_an_Array_Into_Subbarrays_With_Minimum_Cost_I.py) | Easy | Greedy + Sorting | O(n log n) | O(n) |
 | 3013 | [Divide an Array Into Subarrays With Minimum Cost II](./Arrays/3013_Divide_an_Array_Into_Subbarrays_With_Minimum_Cost_II.py) | Hard | Sliding Window + Two Heaps | O(n log d) | O(n) |
 | 3020 | [Find the Maximum Number of Elements in Subset](./Arrays/3020_Find_Max_Elements_in_Subset.py) | Medium | Hash Map Frequency & Mountain Pattern Squaring | O(N) | O(N) |
@@ -275,9 +276,9 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 142
+Total Problems: 143
 
-Easy: 42
+Easy: 44
 
 Medium: 67
 
@@ -297,7 +298,7 @@ Last updated: Daily
 | DFS / Trees                | 212, 1022, 1382, 2196 |
 | Dynamic Programming        | 486, 799, 1140, 1320, 1340, 1406, 1594, 1510, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
 | Prefix / Range Queries     | 2906, 3070, 3212, 3546, 3635, 3660, 3714, 3721, 3737, 3739, 3756 |
-| Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 3014, 3379, 3499, 3517, 3633, 3637 |
+| Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 2996, 3014, 3379, 3499, 3517, 3633, 3637 |
 | Brute Force / Recursion    | 761, 1545, 3713, 3719 |
 | Graphs    | 1391, 1559, 2812, 3310, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
@@ -403,6 +404,8 @@ Last updated: Daily
 **3731. Find Missing Elements**: Bypasses the $O(N \log N)$ penalty of array sorting by capitalizing on the implicit boundaries given in the constraints. By converting the input array into a Hash Set for $O(1)$ constant-time lookups, the algorithm efficiently sweeps the exact bounded integer range (`min(nums)` to `max(nums)`), appending missing elements in a naturally sorted order. The alternative Pythonic one-liner leverages optimized C-backend set difference operations (`set(range) - set(nums)`) for extreme syntactical elegance.
 
 **3345. Smallest Divisible Digit Product I**: Showcases how mathematical boundary analysis reduces an apparently unbounded `while` loop into a strict $O(1)$ constant-time execution. By identifying the "Zero-Digit Ceiling," the algorithm recognizes that incrementing `n` will inherently produce a trailing zero within at most 10 iterations. Since a zero-digit cascades the multiplicative product to $0$—which satisfies any modulo target $t$—the execution strictly bypasses the risk of Time Limit Exceeded (TLE) errors using space-optimized in-place digit peeling (`n % 10`).
+
+**2996. Smallest Missing Integer Greater Than Sequential Prefix Sum**: Showcases an optimal multi-stage array parsing mechanism. The algorithm utilizes an O(N) linear sweep with a conditional early exit (`nums[i] != nums[i - 1] + 1`) to isolate the strictly sequential prefix sum constraint. It subsequently bypasses the catastrophic O(N^2) overhead of iteratively searching the array for the calculated sum by injecting all elements into a Hash Set, resolving the final missing integer via O(1) constant-time lookups.
 
 ### Complex Logic
 
