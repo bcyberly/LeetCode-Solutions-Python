@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-143-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-144-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -76,6 +76,7 @@ LeetCode-Solutions-Python/
 | 2615 | [Sum of Distances](./Arrays/2615_Sum_of_Distances.py) | Medium | Hash Map + Prefix Sums | O(N) | O(N) |
 | 2657 | [Find the Prefix Common Array of Two Arrays](./Arrays/2657_Find_the_Prefix_Common_Array.py) | Medium | Shared Frequency Array | O(N) | O(N) |
 | 2751 | [Robot Collisions](./Arrays/2751_Robot_Collisions.py) | Hard | Sorting + Stack Simulation | O(N log N) | O(N) |
+| 2958 | [Length of Longest Subarray With at Most K Frequency](./Arrays/2958_Length_of_Longest_Subarray_With_at_Most_K_Frequency.py) | Medium | Sliding Window & Frequency Map | O(N) | O(N) |
 | 2996 | [Smallest Missing Integer Greater Than Sequential Prefix Sum](./Arrays/2996_Smallest_Missing_Integer_Greater_Than_Sequential_Prefix_Sum.py) | Easy | Greedy Prefix Break & Hash Set Lookup | O(N) | O(N) |
 | 3010 | [Divide an Array Into Subarrays With Minimum Cost I](./Arrays/3010_Divide_an_Array_Into_Subbarrays_With_Minimum_Cost_I.py) | Easy | Greedy + Sorting | O(n log n) | O(n) |
 | 3013 | [Divide an Array Into Subarrays With Minimum Cost II](./Arrays/3013_Divide_an_Array_Into_Subbarrays_With_Minimum_Cost_II.py) | Hard | Sliding Window + Two Heaps | O(n log d) | O(n) |
@@ -276,11 +277,11 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 143
+Total Problems: 144
 
 Easy: 44
 
-Medium: 67
+Medium: 68
 
 Hard: 33 
 
@@ -293,7 +294,7 @@ Last updated: Daily
 | Core Category              | Problems |
 |----------------------------|----------|
 | Greedy / Sorting           | 1536, 1689, 1727, 1846, 2144, 2833, 3010, 3016, 3634 |
-| Sliding Window             | 42, 1358, 1461, 1848, 1871, 3302 |
+| Sliding Window             | 42, 1358, 1461, 1848, 1871, 2958, 3302 |
 | Manipulation           | 67, 190, 401, 693, 762, 868, 1009, 1356, 1404, 1680, 1855, 3666 |
 | DFS / Trees                | 212, 1022, 1382, 2196 |
 | Dynamic Programming        | 486, 799, 1140, 1320, 1340, 1406, 1594, 1510, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
@@ -512,6 +513,8 @@ Last updated: Daily
 **1140. Stone Game II**: Expands the zero-sum Minimax DP architecture by introducing a dynamically scaling action window ($1 \le X \le 2M$). To avoid tracking dual independent player states, the algorithm utilizes a precalculated Suffix Sum array, mapping the global remainder of stones in $O(1)$ time. This allows the optimal localized choice to be resolved purely via opponent subversion (`suffix_sum[i] - dp(i + X, max(m, X))`). The cascading recursion evaluates all localized permutations, achieving global optimality within $O(N^3)$ computational time bounded by $O(N^2)$ memoized states.
 
 **1510. Stone Game IV**: Re-engineers the Stone Game franchise by stripping away score maximization in favor of pure topological Game Theory survival. The algorithm deploys a 1D Bottom-Up Dynamic Programming array to evaluate combinatorial win-states (`dp[i]`). By recognizing that any move forcing the opponent into a known `False` state inherently renders the current state `True`, it greedily short-circuits evaluation paths. The transition loops are strictly bounded by integer square limits ($k^2 \le i$), gracefully bypassing absolute quadratic penalties to resolve massive $10^5$ stone constraints in highly optimized $O(N \sqrt{N})$ time.
+
+**2958. Length of Longest Subarray With at Most K Frequency**: Achieves a highly optimal $O(N)$ traversal by implementing a dynamically shifting Sliding Window architecture. Bypassing catastrophic $O(N^2)$ brute-force sub-array evaluations, the algorithm couples a Right-expanding pointer with a Hash Map frequency tracker. When a localized frequency violates the threshold constraint `k`, a Left-contracting pointer dynamically evicts elements until validity is restored, isolating the absolute maximum contiguous block in a single continuous linear sweep.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
