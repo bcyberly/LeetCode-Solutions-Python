@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-144-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-145-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -201,6 +201,7 @@ LeetCode-Solutions-Python/
 |---|---------|------------|----------|------|-------|
 | 1022 | [Sum of Root To Leaf Binary Numbers](./Trees/1022_Sum_of_Root_To_Leaf_Binary_Numbers.py) | Easy | DFS & Bitwise Shift | O(N) | O(H) |
 | 1382 | [Balance a Binary Search Tree](./Trees/1382_Balance_a_Binary_Search_Tree.py) | Medium | In-Order Traversal + Divide & Conquer | O(n) | O(n) |
+| 2213 | [Longest Substring of One Repeating Character](./Trees/2213_Longest_Substring_of_One_Repeating_Character.py) | Hard | Segment Tree Boundary Merging | O(N+K\log N) | O(N) |
 | 2196 | [Create Binary Tree From Descriptions](./Trees/2196_Create_Binary_Tree_From_Descriptions.py) | Medium | Hash Map + Set (Root Identification) | O(N) | O(N) |
 | 3558 | [Number of Ways to Assign Edge Weights I](./Trees/3558_Num_Ways_Assign_Edge_Weights_I.py) | Medium | BFS Depth Traversal + Combinatorics | O(N) | O(N) |
 
@@ -277,13 +278,13 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 144
+Total Problems: 145
 
 Easy: 44
 
 Medium: 68
 
-Hard: 33 
+Hard: 34 
 
 Last updated: Daily  
 
@@ -316,7 +317,7 @@ Last updated: Daily
 | String Matching / KMP Automaton | 3474 |
 | Stack / 1D Simulation | 1081, 2751 |
 | Geometric Sweeping / Running Max | 3027 |
-| Segment Tree / Fenwick / RMQ | 307, 315, 2407, 3183, 3501, 3688 |
+| Segment Tree / Fenwick / RMQ | 307, 315, 2213, 2407, 3183, 3501, 3688 |
 | Bit Manipulation / XOR     | 453, 3513, 3514 |
 
 ## 📝 Solution Highlights
@@ -515,6 +516,8 @@ Last updated: Daily
 **1510. Stone Game IV**: Re-engineers the Stone Game franchise by stripping away score maximization in favor of pure topological Game Theory survival. The algorithm deploys a 1D Bottom-Up Dynamic Programming array to evaluate combinatorial win-states (`dp[i]`). By recognizing that any move forcing the opponent into a known `False` state inherently renders the current state `True`, it greedily short-circuits evaluation paths. The transition loops are strictly bounded by integer square limits ($k^2 \le i$), gracefully bypassing absolute quadratic penalties to resolve massive $10^5$ stone constraints in highly optimized $O(N \sqrt{N})$ time.
 
 **2958. Length of Longest Subarray With at Most K Frequency**: Achieves a highly optimal $O(N)$ traversal by implementing a dynamically shifting Sliding Window architecture. Bypassing catastrophic $O(N^2)$ brute-force sub-array evaluations, the algorithm couples a Right-expanding pointer with a Hash Map frequency tracker. When a localized frequency violates the threshold constraint `k`, a Left-contracting pointer dynamically evicts elements until validity is restored, isolating the absolute maximum contiguous block in a single continuous linear sweep.
+
+**2213. Longest Substring of One Repeating Character**: Highlights the raw speed of a custom-built Segment Tree architecture. By abandoning string reallocation and $O(N)$ sequential scans, the algorithm encapsulates contiguous prefix/suffix length boundaries into node states. When a point-update mutates a character at $O(\log N)$ depth, the unwinding recursion automatically bridges matching adjacent chunk boundaries (`suff_len[left] + pref_len[right]`), recalculating the global longest continuous block dynamically while strictly bypassing Time Limit Exceeded (TLE) errors in Python by using flat parallel state arrays.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
