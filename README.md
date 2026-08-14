@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-145-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-146-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -127,6 +127,7 @@ LeetCode-Solutions-Python/
 | 2840 | [Check if Strings Can be Made Equal With Operations II](./Strings/2840_Check_if_Strings_Can_be_Made_Equal_II.py) | Medium | Parity Grouping + Frequency Map | O(N) | O(1) |
 | 3014 | [Minimum Number of Pushes to Type Word I](./Strings/3014_Minimum_Number_of_Pushes_to_Type_Word_I.py) | Easy | Greedy Tier Allocation & String Length | O(1) | O(1) |
 | 3016 | [Minimum Number of Pushes to Type Word II](./Strings/3016_Minimum_Number_of_Pushes_to_Type_Word_II.py) | Medium | Greedy Frequency Tier Allocation & 26-Array Sieve | O(N) | O(1) |
+| 3090 | [Maximum Length Substring With Two Occurrences](./Strings/3090_Maximum_Length_Substring_With_Two_Occurrences.py) | Easy | Sliding Window Frequency Bounding | O(N) | O(1) |
 | 3501 | [Maximize Active Section with Trade II](./Strings/3501_Maximize_Active_Section_Trade_II.py) | Hard | Sparse Table (RMQ) & Block Parsing | O(NlogN+QlogM) | O(NlogN) |
 | 3517 | [Smallest Palindromic Rearrangement I](./Strings/3517_Smallest_Palindromic_Rearrangement_I.py) | Medium | Alphabetical Frequency Half-Build & Mirroring | O(N) | O(N) |
 | 3518 | [Smallest Palindromic Rearrangement II](./Strings/3518_Smallest_Palindromic_Rearrangement_II.py) | Hard | Combinatorial Prefix Skipping | O(N) | O(N) |
@@ -278,9 +279,9 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 145
+Total Problems: 146
 
-Easy: 44
+Easy: 45
 
 Medium: 68
 
@@ -295,7 +296,7 @@ Last updated: Daily
 | Core Category              | Problems |
 |----------------------------|----------|
 | Greedy / Sorting           | 1536, 1689, 1727, 1846, 2144, 2833, 3010, 3016, 3634 |
-| Sliding Window             | 42, 1358, 1461, 1848, 1871, 2958, 3302 |
+| Sliding Window             | 42, 1358, 1461, 1848, 1871, 2958, 3090, 3302 |
 | Manipulation           | 67, 190, 401, 693, 762, 868, 1009, 1356, 1404, 1680, 1855, 3666 |
 | DFS / Trees                | 212, 1022, 1382, 2196 |
 | Dynamic Programming        | 486, 799, 1140, 1320, 1340, 1406, 1594, 1510, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
@@ -408,6 +409,8 @@ Last updated: Daily
 **3345. Smallest Divisible Digit Product I**: Showcases how mathematical boundary analysis reduces an apparently unbounded `while` loop into a strict $O(1)$ constant-time execution. By identifying the "Zero-Digit Ceiling," the algorithm recognizes that incrementing `n` will inherently produce a trailing zero within at most 10 iterations. Since a zero-digit cascades the multiplicative product to $0$—which satisfies any modulo target $t$—the execution strictly bypasses the risk of Time Limit Exceeded (TLE) errors using space-optimized in-place digit peeling (`n % 10`).
 
 **2996. Smallest Missing Integer Greater Than Sequential Prefix Sum**: Showcases an optimal multi-stage array parsing mechanism. The algorithm utilizes an O(N) linear sweep with a conditional early exit (`nums[i] != nums[i - 1] + 1`) to isolate the strictly sequential prefix sum constraint. It subsequently bypasses the catastrophic O(N^2) overhead of iteratively searching the array for the calculated sum by injecting all elements into a Hash Set, resolving the final missing integer via O(1) constant-time lookups.
+
+**3090. Maximum Length Substring With Two Occurrences**: Achieves optimal $O(N)$ traversal by implementing a classic dynamically shifting Sliding Window. Serving as the string-based Easy counterpart to Problem 2958, the algorithm leverages a dual-pointer mechanism backed by a constant-space $O(1)$ Hash Map. When a character's frequency violates the hardcoded threshold (`count > 2`), the left boundary efficiently contracts until validity is restored, isolating the absolute maximum contiguous block without requiring $O(N^2)$ brute-force sub-string extraction.
 
 ### Complex Logic
 
