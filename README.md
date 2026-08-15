@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-146-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-147-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -169,6 +169,7 @@ LeetCode-Solutions-Python/
 | 3513 | [Number of Unique XOR Triplets I](./BitManipulation/3513_Number_of_Unique_XOR_Triplets_I.py) | Medium | O(1) Bit-Length Vector Span | O(1) | O(1) |
 | 3514 | [Number of Unique XOR Triplets II](./BitManipulation/3514_Number_of_Unique_XOR_Triplets_II.py) | Medium | 2-Step Pairwise XOR Sieve & Boolean Array Optimization | O(U^2+P*U) | O(U+P+V) |
 | 3666 | [Minimum Operations to Equalize Binary String](./BitManipulation/3666_Minimum_Operations_to_Equalize_Binary_String.py) | Hard | SortedList BFS Parity Search | O(N log N) | O(N) |
+| 3702 | [Longest Subsequence With Non-Zero Bitwise XOR](./BitManipulation/3702_Longest_Subsequence_With_Non_Zero_Bitwise_XOR.py) | Medium | Global XOR & Single Element Exclusion | O(N) | O(1) |
 
 ### [DynamicProgramming](./DynamicProgramming/)
 
@@ -279,11 +280,11 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 146
+Total Problems: 147
 
 Easy: 45
 
-Medium: 68
+Medium: 69
 
 Hard: 34 
 
@@ -319,7 +320,7 @@ Last updated: Daily
 | Stack / 1D Simulation | 1081, 2751 |
 | Geometric Sweeping / Running Max | 3027 |
 | Segment Tree / Fenwick / RMQ | 307, 315, 2213, 2407, 3183, 3501, 3688 |
-| Bit Manipulation / XOR     | 453, 3513, 3514 |
+| Bit Manipulation / XOR     | 453, 3513, 3514, 3702 |
 
 ## 📝 Solution Highlights
 
@@ -411,6 +412,8 @@ Last updated: Daily
 **2996. Smallest Missing Integer Greater Than Sequential Prefix Sum**: Showcases an optimal multi-stage array parsing mechanism. The algorithm utilizes an O(N) linear sweep with a conditional early exit (`nums[i] != nums[i - 1] + 1`) to isolate the strictly sequential prefix sum constraint. It subsequently bypasses the catastrophic O(N^2) overhead of iteratively searching the array for the calculated sum by injecting all elements into a Hash Set, resolving the final missing integer via O(1) constant-time lookups.
 
 **3090. Maximum Length Substring With Two Occurrences**: Achieves optimal $O(N)$ traversal by implementing a classic dynamically shifting Sliding Window. Serving as the string-based Easy counterpart to Problem 2958, the algorithm leverages a dual-pointer mechanism backed by a constant-space $O(1)$ Hash Map. When a character's frequency violates the hardcoded threshold (`count > 2`), the left boundary efficiently contracts until validity is restored, isolating the absolute maximum contiguous block without requiring $O(N^2)$ brute-force sub-string extraction.
+
+**3702. Longest Subsequence With Non-Zero Bitwise XOR**: Showcases the mathematical beauty of the XOR operation's self-canceling properties. Bypassing massive subset generation ($O(2^N)$), the algorithm evaluates the global XOR sum in a strictly $O(N)$ linear pass. It leverages the proof that if the global XOR is $0$, extracting any single non-zero element mathematically guarantees the remaining subset will equal that extracted element ($0 \oplus x = x$), yielding a maximal subsequence length of exactly $N - 1$.
 
 ### Complex Logic
 
