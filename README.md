@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-147-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-148-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -226,6 +226,7 @@ LeetCode-Solutions-Python/
 | 1622 | [Fancy Sequence](./Math/1622_Fancy_Sequence.py) | Hard | Modular Inverse (Fermat's Little Theorem) | O(1)* | O(N) |
 | 877 | [Stone Game](./Math/0877_Stone_Game.py) | Medium | Game Theory Parity Strategy | O(1) | O(1) |
 | 1979 | [Find Greatest Common Divisor of Array](./Math/1979_Find_Greatest_Common_Divisor_of_Array.py) | Easy | O(N) Min-Max Scan & Euclidean Algorithm | O(N) | O(1) |
+| 2029 | [Stone Game IX](./Math/2029_Stone_Game_IX.py) | Medium | Modulo 3 Frequency Buckets & Parity Logic | O(N) | O(1) |
 | 2033 | [Minimum Operations to Make a Uni-Value Grid](./Math/2033_Min_Operations_Uni_Value_Grid.py) | Medium | Median Minimization / Modulo Math | O(N log N) | O(N) |
 | 3312 | [Sorted GCD Pair Queries](./Math/3312_Sorted_GCD_Pair_Queries.py) | Hard | Inclusion-Exclusion Sieve & Prefix Binary Search | O(M log M) | O(M) |
 | 3345 | [Smallest Divisible Digit Product I](./Math/3345_Smallest_Divisible_Digit_Product_I.py) | Easy | Modulo Arithmetic & Zero-Digit Ceiling | O(1) | O(1) |
@@ -280,11 +281,11 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 147
+Total Problems: 148
 
 Easy: 45
 
-Medium: 69
+Medium: 70
 
 Hard: 34 
 
@@ -307,7 +308,7 @@ Last updated: Daily
 | Graphs    | 1391, 1559, 2812, 3310, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
 | Backtracking / Decision Tree | 37, 401, 1415 |
-| Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1979, 2033, 3300, 3312, 3345, 3348, 3518, 3536, 3558, 3658, 3754, 3783, 3867 |
+| Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1979, 2029, 2033, 3300, 3312, 3345, 3348, 3518, 3536, 3558, 3658, 3754, 3783, 3867 |
 | Matrix / 2D Traversal      | 1260, 1582, 1594, 1727, 1878, 1886, 2906, 2946, 3070, 3212, 3546, 3548, 3567, 3643 |
 | String Manipulation / Parity | 2451, 2839, 2840 |
 | Arrays / Circular Traversal | 2515 |
@@ -524,6 +525,8 @@ Last updated: Daily
 **2958. Length of Longest Subarray With at Most K Frequency**: Achieves a highly optimal $O(N)$ traversal by implementing a dynamically shifting Sliding Window architecture. Bypassing catastrophic $O(N^2)$ brute-force sub-array evaluations, the algorithm couples a Right-expanding pointer with a Hash Map frequency tracker. When a localized frequency violates the threshold constraint `k`, a Left-contracting pointer dynamically evicts elements until validity is restored, isolating the absolute maximum contiguous block in a single continuous linear sweep.
 
 **2213. Longest Substring of One Repeating Character**: Highlights the raw speed of a custom-built Segment Tree architecture. By abandoning string reallocation and $O(N)$ sequential scans, the algorithm encapsulates contiguous prefix/suffix length boundaries into node states. When a point-update mutates a character at $O(\log N)$ depth, the unwinding recursion automatically bridges matching adjacent chunk boundaries (`suff_len[left] + pref_len[right]`), recalculating the global longest continuous block dynamically while strictly bypassing Time Limit Exceeded (TLE) errors in Python by using flat parallel state arrays.
+
+**2029. Stone Game IX**: Dismantles a combinatorial Game Theory trap by reducing array elements entirely to their modulo 3 parities. By recognizing that modulo `0` elements function strictly as turn-flippers, the algorithm establishes two mathematical constants in $O(N)$ time: if `c0` is even, Alice wins given minimum availability (`c1 > 0 and c2 > 0`); if `c0` is odd, Alice requires a structural imbalance (`abs(c1 - c2) > 2`) to absorb the opponent's tempo advantage. This completely bypasses recursive Minimax state generation for an absolute $O(1)$ space evaluation.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
