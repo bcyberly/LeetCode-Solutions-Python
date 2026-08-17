@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-148-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-149-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -182,6 +182,7 @@ LeetCode-Solutions-Python/
 | 1340 | [Jump Game V](./DynamicProgramming/1340_Jump_Game_V.py) | Hard | Top-Down DP (Memoization) / DAG Traversal | O(N*d) | O(N) |
 | 1406 | [Stone Game III](./DynamicProgramming/1406_Stone_Game_III.py) | Hard | Minimax Net-Difference DP & O(1) Sliding Window | O(N) | O(1) |
 | 1510 | [Stone Game IV](./DynamicProgramming/1510_Stone_Game_IV.py) | Hard | Win-State DP & Square Root Bounding | O(N\sqrt{N}) | O(N) |
+| 1563 | [Stone Game V](./DynamicProgramming/1563_Stone_Game_V.py) | Hard | Divide & Conquer DP with Prefix Sums | O(N³) | O(N²) |
 | 1594 | [Maximum Non Negative Product in a Matrix](./DynamicProgramming/1594_Max_Non_Negative_Product_Matrix.py) | Medium | 2D DP (Min/Max Dual-State) | O(M*N) | O(M*N) |
 | 1871 | [Jump Game VII](./DynamicProgramming/1871_Jump_Game_VII.py) | Medium | 1D DP + Sliding Window Count | O(N) | O(N) |
 | 2463 | [Minimum Total Distance Traveled](./DynamicProgramming/2463_Min_Total_Distance_Traveled.py) | Hard | Top-Down DP (Capacity Batching) | O(R² * F) | O(R * F) |
@@ -281,13 +282,13 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 148
+Total Problems: 149
 
-Easy: 45
+Easy: 44
 
 Medium: 70
 
-Hard: 34 
+Hard: 35 
 
 Last updated: Daily  
 
@@ -301,7 +302,7 @@ Last updated: Daily
 | Sliding Window             | 42, 1358, 1461, 1848, 1871, 2958, 3090, 3302 |
 | Manipulation           | 67, 190, 401, 693, 762, 868, 1009, 1356, 1404, 1680, 1855, 3666 |
 | DFS / Trees                | 212, 1022, 1382, 2196 |
-| Dynamic Programming        | 486, 799, 1140, 1320, 1340, 1406, 1594, 1510, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
+| Dynamic Programming        | 486, 799, 1140, 1320, 1340, 1406, 1563, 1594, 1510, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
 | Prefix / Range Queries     | 2906, 3070, 3212, 3546, 3635, 3660, 3714, 3721, 3737, 3739, 3756 |
 | Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 2996, 3014, 3379, 3499, 3517, 3633, 3637 |
 | Brute Force / Recursion    | 761, 1545, 3713, 3719 |
@@ -527,6 +528,8 @@ Last updated: Daily
 **2213. Longest Substring of One Repeating Character**: Highlights the raw speed of a custom-built Segment Tree architecture. By abandoning string reallocation and $O(N)$ sequential scans, the algorithm encapsulates contiguous prefix/suffix length boundaries into node states. When a point-update mutates a character at $O(\log N)$ depth, the unwinding recursion automatically bridges matching adjacent chunk boundaries (`suff_len[left] + pref_len[right]`), recalculating the global longest continuous block dynamically while strictly bypassing Time Limit Exceeded (TLE) errors in Python by using flat parallel state arrays.
 
 **2029. Stone Game IX**: Dismantles a combinatorial Game Theory trap by reducing array elements entirely to their modulo 3 parities. By recognizing that modulo `0` elements function strictly as turn-flippers, the algorithm establishes two mathematical constants in $O(N)$ time: if `c0` is even, Alice wins given minimum availability (`c1 > 0 and c2 > 0`); if `c0` is odd, Alice requires a structural imbalance (`abs(c1 - c2) > 2`) to absorb the opponent's tempo advantage. This completely bypasses recursive Minimax state generation for an absolute $O(1)$ space evaluation.
+
+**1563. Stone Game V**: Approaches a constrained division Game Theory problem utilizing a Top-Down Divide and Conquer DP architecture. Bypassing catastrophic combinatorial overhead, the algorithm leverages an $O(N)$ precomputed Prefix Sum array to evaluate all localized subarray weights in strict $O(1)$ constant time. By iterating through all possible spatial pivots ($O(N)$ splits for $O(N^2)$ states), it executes a complete state-space exploration to maximize the current player's residual value, caching evaluations to resolve the entire structure optimally in $O(N^3)$ computational time.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
