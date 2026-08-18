@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-149-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-150-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -84,6 +84,7 @@ LeetCode-Solutions-Python/
 | 3027 | [Find the Number of Ways to Place People II](./Arrays/3027_Find_the_Number_of_Ways_to_Place_People_II.py) | Hard | 2D Geometry Sweep + Running Max | O(N²) | O(1) |
 | 3300 | [Minimum Element After Replacement With Digit Sum](./Arrays/3300_Min_Element_After_Replacement_Digit_Sum.py) | Easy | Linear Scan + Modulo Digit Extraction | O(N) | O(1) |
 | 3379 | [Transformed Array](./Arrays/3379_Transformed_Array.py) | Easy | Simulation (Modular Arithmetic) | O(n) | O(n) |
+| 3471 | [Find the Largest Almost Missing Integer](./Arrays/3471_Largest_Almost_Missing_Integer.py) | Easy | Sliding Window Set Sieve | O(N \times K) | O(N) |
 | 3488 | [Closest Equal Element Queries](./Arrays/3488_Closest_Equal_Element_Queries.py) | Medium | Hash Map + Circular Math | O(N + Q) | O(N) |
 | 3633 | [Earliest Finish Time for Land and Water Rides I](./Arrays/3633_Earliest_Finish_Time_Land_Water_Rides_I.py) | Easy | Simulation / Min-Max Bounding | O(N*M) | O(1) |
 | 3634 | [Minimum Removals to Balance Array](./Arrays/3634_Minimum_Removals_to_Balance.py) | Medium | Two Pointers + Sorting | O(n log n) | O(1) |
@@ -282,9 +283,9 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 149
+Total Problems: 150
 
-Easy: 44
+Easy: 45
 
 Medium: 70
 
@@ -299,7 +300,7 @@ Last updated: Daily
 | Core Category              | Problems |
 |----------------------------|----------|
 | Greedy / Sorting           | 1536, 1689, 1727, 1846, 2144, 2833, 3010, 3016, 3634 |
-| Sliding Window             | 42, 1358, 1461, 1848, 1871, 2958, 3090, 3302 |
+| Sliding Window             | 42, 1358, 1461, 1848, 1871, 2958, 3090, 3302, 3471 |
 | Manipulation           | 67, 190, 401, 693, 762, 868, 1009, 1356, 1404, 1680, 1855, 3666 |
 | DFS / Trees                | 212, 1022, 1382, 2196 |
 | Dynamic Programming        | 486, 799, 1140, 1320, 1340, 1406, 1563, 1594, 1510, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
@@ -416,6 +417,8 @@ Last updated: Daily
 **3090. Maximum Length Substring With Two Occurrences**: Achieves optimal $O(N)$ traversal by implementing a classic dynamically shifting Sliding Window. Serving as the string-based Easy counterpart to Problem 2958, the algorithm leverages a dual-pointer mechanism backed by a constant-space $O(1)$ Hash Map. When a character's frequency violates the hardcoded threshold (`count > 2`), the left boundary efficiently contracts until validity is restored, isolating the absolute maximum contiguous block without requiring $O(N^2)$ brute-force sub-string extraction.
 
 **3702. Longest Subsequence With Non-Zero Bitwise XOR**: Showcases the mathematical beauty of the XOR operation's self-canceling properties. Bypassing massive subset generation ($O(2^N)$), the algorithm evaluates the global XOR sum in a strictly $O(N)$ linear pass. It leverages the proof that if the global XOR is $0$, extracting any single non-zero element mathematically guarantees the remaining subset will equal that extracted element ($0 \oplus x = x$), yielding a maximal subsequence length of exactly $N - 1$.
+
+**3471. Find the Largest Almost Missing Integer**: Showcases an intuitive moving-window hashing technique to track localized element presence. Bypassing global frequency constraints, the algorithm extracts unique values per window using $O(K)$ hash sets, dynamically tallying subarray-specific occurrences into a global map. A final constant-space sweep isolates the maximal valid element, resolving the localized existence condition gracefully in $O(N \times K)$ time.
 
 ### Complex Logic
 
