@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-150-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-151-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -165,6 +165,7 @@ LeetCode-Solutions-Python/
 | 868 | [Binary Gap](./BitManipulation/0868_Binary_Gap.py) | Easy | Bitwise Shift & Masking | O(log n) | O(1) |
 | 1009 | [Complement of Base 10 Integer](./BitManipulation/1009_Complement_of_Base_10_Integer.py) | Easy | Bitmask & XOR | O(1) | O(1) |
 | 1356 | [Sort Integers by The Number of 1 Bits](./BitManipulation/1356_Sort_Integers_by_The_Number_of_1_Bits.py) | Easy | Custom Sort & Bit Count | O(N log N) | O(1) |
+| 1386 | [Cinema Seat Allocation](./BitManipulation/1386_Cinema_Seat_Allocation.py) | Medium | Hash Map & Bitmask Overlap Deduction | O(M) | O(M) |
 | 1404 | [Number of Steps to Reduce a Number in Binary Representation to One](./BitManipulation/1404_Number_of_Steps_to_Reduce_a_Number_in_Binary_Representation_to_One.py) | Medium | Right-to-Left Carry Tracking | O(N) | O(1) |
 | 1680 | [Concatenation of Consecutive Binary Numbers](./BitManipulation/1680_Concatenation_of_Consecutive_Binary_Numbers.py) | Medium | Bitwise Shift & Modulo | O(N) | O(1) |
 | 3513 | [Number of Unique XOR Triplets I](./BitManipulation/3513_Number_of_Unique_XOR_Triplets_I.py) | Medium | O(1) Bit-Length Vector Span | O(1) | O(1) |
@@ -283,11 +284,11 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 150
+Total Problems: 151
 
 Easy: 45
 
-Medium: 70
+Medium: 71
 
 Hard: 35 
 
@@ -301,7 +302,7 @@ Last updated: Daily
 |----------------------------|----------|
 | Greedy / Sorting           | 1536, 1689, 1727, 1846, 2144, 2833, 3010, 3016, 3634 |
 | Sliding Window             | 42, 1358, 1461, 1848, 1871, 2958, 3090, 3302, 3471 |
-| Manipulation           | 67, 190, 401, 693, 762, 868, 1009, 1356, 1404, 1680, 1855, 3666 |
+| Bit Manipulation           | 67, 190, 401, 693, 762, 868, 1009, 1356, 1386, 1404, 1680, 1855, 3666 |
 | DFS / Trees                | 212, 1022, 1382, 2196 |
 | Dynamic Programming        | 486, 799, 1140, 1320, 1340, 1406, 1563, 1594, 1510, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
 | Prefix / Range Queries     | 2906, 3070, 3212, 3546, 3635, 3660, 3714, 3721, 3737, 3739, 3756 |
@@ -533,6 +534,8 @@ Last updated: Daily
 **2029. Stone Game IX**: Dismantles a combinatorial Game Theory trap by reducing array elements entirely to their modulo 3 parities. By recognizing that modulo `0` elements function strictly as turn-flippers, the algorithm establishes two mathematical constants in $O(N)$ time: if `c0` is even, Alice wins given minimum availability (`c1 > 0 and c2 > 0`); if `c0` is odd, Alice requires a structural imbalance (`abs(c1 - c2) > 2`) to absorb the opponent's tempo advantage. This completely bypasses recursive Minimax state generation for an absolute $O(1)$ space evaluation.
 
 **1563. Stone Game V**: Approaches a constrained division Game Theory problem utilizing a Top-Down Divide and Conquer DP architecture. Bypassing catastrophic combinatorial overhead, the algorithm leverages an $O(N)$ precomputed Prefix Sum array to evaluate all localized subarray weights in strict $O(1)$ constant time. By iterating through all possible spatial pivots ($O(N)$ splits for $O(N^2)$ states), it executes a complete state-space exploration to maximize the current player's residual value, caching evaluations to resolve the entire structure optimally in $O(N^3)$ computational time.
+
+**1386. Cinema Seat Allocation**: Bypasses the catastrophic Time Limit Exceeded (TLE) constraints of $10^9$ matrix rows by utilizing an implicit global tracker. The algorithm assumes maximal capacity across all $N$ rows, completely ignoring unreserved rows to achieve an optimal $O(M)$ time complexity. For reserved rows, it leverages highly efficient Bitwise integers to map seat occupancies, applying static block masks (`0b00111100`) coupled with Bitwise AND operations (`mask & left == 0`) to evaluate overlapping conflicts in strict $O(1)$ constant time.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
