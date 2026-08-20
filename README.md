@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-151-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-152-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -82,6 +82,7 @@ LeetCode-Solutions-Python/
 | 3013 | [Divide an Array Into Subarrays With Minimum Cost II](./Arrays/3013_Divide_an_Array_Into_Subbarrays_With_Minimum_Cost_II.py) | Hard | Sliding Window + Two Heaps | O(n log d) | O(n) |
 | 3020 | [Find the Maximum Number of Elements in Subset](./Arrays/3020_Find_Max_Elements_in_Subset.py) | Medium | Hash Map Frequency & Mountain Pattern Squaring | O(N) | O(N) |
 | 3027 | [Find the Number of Ways to Place People II](./Arrays/3027_Find_the_Number_of_Ways_to_Place_People_II.py) | Hard | 2D Geometry Sweep + Running Max | O(N²) | O(1) |
+| 3069 | [Distribute Elements Into Two Arrays I](./Arrays/3069_Distribute_Elements_Into_Two_Arrays_I.py) | Easy | Tail Comparison Simulation | O(N) | O(N) |
 | 3300 | [Minimum Element After Replacement With Digit Sum](./Arrays/3300_Min_Element_After_Replacement_Digit_Sum.py) | Easy | Linear Scan + Modulo Digit Extraction | O(N) | O(1) |
 | 3379 | [Transformed Array](./Arrays/3379_Transformed_Array.py) | Easy | Simulation (Modular Arithmetic) | O(n) | O(n) |
 | 3471 | [Find the Largest Almost Missing Integer](./Arrays/3471_Largest_Almost_Missing_Integer.py) | Easy | Sliding Window Set Sieve | O(N \times K) | O(N) |
@@ -284,9 +285,9 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 151
+Total Problems: 152
 
-Easy: 45
+Easy: 46
 
 Medium: 71
 
@@ -306,7 +307,7 @@ Last updated: Daily
 | DFS / Trees                | 212, 1022, 1382, 2196 |
 | Dynamic Programming        | 486, 799, 1140, 1320, 1340, 1406, 1563, 1594, 1510, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
 | Prefix / Range Queries     | 2906, 3070, 3212, 3546, 3635, 3660, 3714, 3721, 3737, 3739, 3756 |
-| Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 2996, 3014, 3379, 3499, 3517, 3633, 3637 |
+| Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 2996, 3014, 3069, 3379, 3499, 3517, 3633, 3637 |
 | Brute Force / Recursion    | 761, 1545, 3713, 3719 |
 | Graphs    | 1391, 1559, 2812, 3310, 3532, 3600 |
 | Binary Search on Answer    |  3296, 3464, 3600 |
@@ -420,6 +421,8 @@ Last updated: Daily
 **3702. Longest Subsequence With Non-Zero Bitwise XOR**: Showcases the mathematical beauty of the XOR operation's self-canceling properties. Bypassing massive subset generation ($O(2^N)$), the algorithm evaluates the global XOR sum in a strictly $O(N)$ linear pass. It leverages the proof that if the global XOR is $0$, extracting any single non-zero element mathematically guarantees the remaining subset will equal that extracted element ($0 \oplus x = x$), yielding a maximal subsequence length of exactly $N - 1$.
 
 **3471. Find the Largest Almost Missing Integer**: Showcases an intuitive moving-window hashing technique to track localized element presence. Bypassing global frequency constraints, the algorithm extracts unique values per window using $O(K)$ hash sets, dynamically tallying subarray-specific occurrences into a global map. A final constant-space sweep isolates the maximal valid element, resolving the localized existence condition gracefully in $O(N \times K)$ time.
+
+**3069. Distribute Elements Into Two Arrays I**: Showcases a clean and optimal list simulation. By leveraging Python's `O(1)` list tail lookups (`arr[-1]`), the algorithm completely avoids scanning array contents or tracking auxiliary pointers. Elements are continuously appended to the correct sub-list based on instant peak-value comparisons, followed by a final `O(N)` list concatenation.
 
 ### Complex Logic
 
