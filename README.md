@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-152-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-153-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -152,6 +152,7 @@ LeetCode-Solutions-Python/
 
 | # | Problem | Difficulty | Approach | Time | Space |
 |---|---------|------------|----------|------|-------|
+| 3116 | [Kth Smallest Amount With Single Denomination Combination](./BinarySearch/3116_Kth_Smallest_Amount.py) | Hard | Binary Search on Answer & Inclusion-Exclusion (PIE) | O(2^N \log M) | O(2^N) |
 | 3296 | [Minimum Number of Seconds to Make Mountain Height Zero](./BinarySearch/3296_Min_Seconds_Mountain_Zero.py) | Medium | Binary Search on Answer + Quadratic Formula | O(N log M) | O(1) |
 | 3464 | [Maximize the Distance Between Points on a Square](./BinarySearch/3464_Maximize_Distance_Square.py) | Hard | 1D Mapping / Binary Search on Answer | O(N log N) | O(N) |
 | 3635 | [Earliest Finish Time for Land and Water Rides II](./BinarySearch/3635_Earliest_Finish_Time_Land_Water_Rides_II.py) | Medium | Binary Search / Prefix & Suffix Sweeps | O(NlogN + MlogM) | O(N+M) |
@@ -285,13 +286,13 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 152
+Total Problems: 153
 
 Easy: 46
 
 Medium: 71
 
-Hard: 35 
+Hard: 36 
 
 Last updated: Daily  
 
@@ -310,7 +311,7 @@ Last updated: Daily
 | Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 2996, 3014, 3069, 3379, 3499, 3517, 3633, 3637 |
 | Brute Force / Recursion    | 761, 1545, 3713, 3719 |
 | Graphs    | 1391, 1559, 2812, 3310, 3532, 3600 |
-| Binary Search on Answer    |  3296, 3464, 3600 |
+| Binary Search on Answer    |  3116, 3296, 3464, 3600 |
 | Backtracking / Decision Tree | 37, 401, 1415 |
 | Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1979, 2029, 2033, 3300, 3312, 3345, 3348, 3518, 3536, 3558, 3658, 3754, 3783, 3867 |
 | Matrix / 2D Traversal      | 1260, 1582, 1594, 1727, 1878, 1886, 2906, 2946, 3070, 3212, 3546, 3548, 3567, 3643 |
@@ -539,6 +540,8 @@ Last updated: Daily
 **1563. Stone Game V**: Approaches a constrained division Game Theory problem utilizing a Top-Down Divide and Conquer DP architecture. Bypassing catastrophic combinatorial overhead, the algorithm leverages an $O(N)$ precomputed Prefix Sum array to evaluate all localized subarray weights in strict $O(1)$ constant time. By iterating through all possible spatial pivots ($O(N)$ splits for $O(N^2)$ states), it executes a complete state-space exploration to maximize the current player's residual value, caching evaluations to resolve the entire structure optimally in $O(N^3)$ computational time.
 
 **1386. Cinema Seat Allocation**: Bypasses the catastrophic Time Limit Exceeded (TLE) constraints of $10^9$ matrix rows by utilizing an implicit global tracker. The algorithm assumes maximal capacity across all $N$ rows, completely ignoring unreserved rows to achieve an optimal $O(M)$ time complexity. For reserved rows, it leverages highly efficient Bitwise integers to map seat occupancies, applying static block masks (`0b00111100`) coupled with Bitwise AND operations (`mask & left == 0`) to evaluate overlapping conflicts in strict $O(1)$ constant time.
+
+**3116. Kth Smallest Amount With Single Denomination Combination**: Showcases an advanced fusion of Discrete Mathematics and boundary searching. Bypassing the $O(K)$ iteration limit completely, the algorithm flips the premise to query the mathematical frequency of multiples beneath an arbitrary ceiling $x$. By utilizing Bitmasking to precompute the Least Common Multiples (LCM) and mathematical signs for all $2^N$ combinations, it evaluates the precise count of valid amounts in $O(2^N)$ time using the Principle of Inclusion-Exclusion (PIE). Embedding this evaluation inside a logarithmic Binary Search strictly isolates the $k$-th exact value, crushing massive bounds up to $10^{11}$ in mere milliseconds.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
