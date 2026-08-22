@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-153-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-154-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -237,6 +237,7 @@ LeetCode-Solutions-Python/
 | 3345 | [Smallest Divisible Digit Product I](./Math/3345_Smallest_Divisible_Digit_Product_I.py) | Easy | Modulo Arithmetic & Zero-Digit Ceiling | O(1) | O(1) |
 | 3348 | [Smallest Divisible Digit Product II](./Math/3348_Smallest_Divisible_Digit_Product_II.py) | Hard | Prime Factor DP & Fast-Forward Suffix Generation | O(N) | O(N) |
 | 3536 | [Maximum Product of Two Digits](./Math/3536_Maximum_Product_of_Two_Digits.py) | Easy | Top-Two Digit Extraction & Modulo Arithmetic | O(d) | O(1) |
+| 3622 | [Check Divisibility by Digit Sum and Product](./Math/3622_Check_Divisibility_by_Digit_Sum_and_Product.py) | Easy | In-Place Digit Extraction & Modulo Math | O(\log_{10} N) | O(1) |
 | 3658 | [GCD of Odd and Even Sums](./Math/3658_GCD_of_Odd_and_Even_Sums.py) | Easy | Mathematical Simplification | O(1) | O(1) |
 | 3754 | [Concatenate Non-Zero Digits and Multiply by Sum I](./Math/3754_Concatenate_Non_Zero_Digits_and_Multiply_by_Sum_I.py) | Easy | String Filtering & Digit Sum Math | O(D) | O(D) |
 | 3783 | [Mirror Distance of an Integer](./Math/3783_Mirror_Distance_of_an_Integer.py) | Easy | String Slicing / Digit Extraction | O(D) | O(D) |
@@ -286,9 +287,9 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 153
+Total Problems: 154
 
-Easy: 46
+Easy: 47
 
 Medium: 71
 
@@ -313,7 +314,7 @@ Last updated: Daily
 | Graphs    | 1391, 1559, 2812, 3310, 3532, 3600 |
 | Binary Search on Answer    |  3116, 3296, 3464, 3600 |
 | Backtracking / Decision Tree | 37, 401, 1415 |
-| Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1979, 2029, 2033, 3300, 3312, 3345, 3348, 3518, 3536, 3558, 3658, 3754, 3783, 3867 |
+| Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1979, 2029, 2033, 3300, 3312, 3345, 3348, 3518, 3536, 3558, 3622, 3658, 3754, 3783, 3867 |
 | Matrix / 2D Traversal      | 1260, 1582, 1594, 1727, 1878, 1886, 2906, 2946, 3070, 3212, 3546, 3548, 3567, 3643 |
 | String Manipulation / Parity | 2451, 2839, 2840 |
 | Arrays / Circular Traversal | 2515 |
@@ -424,6 +425,8 @@ Last updated: Daily
 **3471. Find the Largest Almost Missing Integer**: Showcases an intuitive moving-window hashing technique to track localized element presence. Bypassing global frequency constraints, the algorithm extracts unique values per window using $O(K)$ hash sets, dynamically tallying subarray-specific occurrences into a global map. A final constant-space sweep isolates the maximal valid element, resolving the localized existence condition gracefully in $O(N \times K)$ time.
 
 **3069. Distribute Elements Into Two Arrays I**: Showcases a clean and optimal list simulation. By leveraging Python's `O(1)` list tail lookups (`arr[-1]`), the algorithm completely avoids scanning array contents or tracking auxiliary pointers. Elements are continuously appended to the correct sub-list based on instant peak-value comparisons, followed by a final `O(N)` list concatenation.
+
+**3622. Check Divisibility by Digit Sum and Product**: Demonstrates absolute memory efficiency by bypassing string casting (`str(n)`) completely. The algorithm extracts individual digits dynamically utilizing base-10 modulo arithmetic (`% 10`) and division reductions (`// 10`), resolving the dual sum and product calculations in a single $O(\log_{10} N)$ pass while preserving strict $O(1)$ constant auxiliary space.
 
 ### Complex Logic
 
