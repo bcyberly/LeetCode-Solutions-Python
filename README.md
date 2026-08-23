@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-154-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-155-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -230,6 +230,7 @@ LeetCode-Solutions-Python/
 | 628 | [Maximum Product of Three Numbers](./Math/0628_Maximum_Product_of_Three_Numbers.py) | Easy | Dual-Extreme Comparison & O(N) Single-Pass Scan | O(N) | O(1) |
 | 1622 | [Fancy Sequence](./Math/1622_Fancy_Sequence.py) | Hard | Modular Inverse (Fermat's Little Theorem) | O(1)* | O(N) |
 | 877 | [Stone Game](./Math/0877_Stone_Game.py) | Medium | Game Theory Parity Strategy | O(1) | O(1) |
+| 1927 | [Sum Game](./Math/1927_Sum_Game.py) | Medium | Parity & Expected Value Balancing | O(N) | O(1) |
 | 1979 | [Find Greatest Common Divisor of Array](./Math/1979_Find_Greatest_Common_Divisor_of_Array.py) | Easy | O(N) Min-Max Scan & Euclidean Algorithm | O(N) | O(1) |
 | 2029 | [Stone Game IX](./Math/2029_Stone_Game_IX.py) | Medium | Modulo 3 Frequency Buckets & Parity Logic | O(N) | O(1) |
 | 2033 | [Minimum Operations to Make a Uni-Value Grid](./Math/2033_Min_Operations_Uni_Value_Grid.py) | Medium | Median Minimization / Modulo Math | O(N log N) | O(N) |
@@ -287,11 +288,11 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 154
+Total Problems: 155
 
 Easy: 47
 
-Medium: 71
+Medium: 72
 
 Hard: 36 
 
@@ -314,7 +315,7 @@ Last updated: Daily
 | Graphs    | 1391, 1559, 2812, 3310, 3532, 3600 |
 | Binary Search on Answer    |  3116, 3296, 3464, 3600 |
 | Backtracking / Decision Tree | 37, 401, 1415 |
-| Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1979, 2029, 2033, 3300, 3312, 3345, 3348, 3518, 3536, 3558, 3622, 3658, 3754, 3783, 3867 |
+| Math / Modular Arithmetic  | 628, 877, 1464, 1622, 1927, 1979, 2029, 2033, 3300, 3312, 3345, 3348, 3518, 3536, 3558, 3622, 3658, 3754, 3783, 3867 |
 | Matrix / 2D Traversal      | 1260, 1582, 1594, 1727, 1878, 1886, 2906, 2946, 3070, 3212, 3546, 3548, 3567, 3643 |
 | String Manipulation / Parity | 2451, 2839, 2840 |
 | Arrays / Circular Traversal | 2515 |
@@ -545,6 +546,8 @@ Last updated: Daily
 **1386. Cinema Seat Allocation**: Bypasses the catastrophic Time Limit Exceeded (TLE) constraints of $10^9$ matrix rows by utilizing an implicit global tracker. The algorithm assumes maximal capacity across all $N$ rows, completely ignoring unreserved rows to achieve an optimal $O(M)$ time complexity. For reserved rows, it leverages highly efficient Bitwise integers to map seat occupancies, applying static block masks (`0b00111100`) coupled with Bitwise AND operations (`mask & left == 0`) to evaluate overlapping conflicts in strict $O(1)$ constant time.
 
 **3116. Kth Smallest Amount With Single Denomination Combination**: Showcases an advanced fusion of Discrete Mathematics and boundary searching. Bypassing the $O(K)$ iteration limit completely, the algorithm flips the premise to query the mathematical frequency of multiples beneath an arbitrary ceiling $x$. By utilizing Bitmasking to precompute the Least Common Multiples (LCM) and mathematical signs for all $2^N$ combinations, it evaluates the precise count of valid amounts in $O(2^N)$ time using the Principle of Inclusion-Exclusion (PIE). Embedding this evaluation inside a logarithmic Binary Search strictly isolates the $k$-th exact value, crushing massive bounds up to $10^{11}$ in mere milliseconds.
+
+**1927. Sum Game**: Deconstructs a combinatorial Minimax Game Theory prompt into a pure $O(1)$ space mathematical evaluation. By analyzing the parity of the available moves, the algorithm deduces that an odd number of turns guarantees Player 1 (Alice) the victory via the final unopposed move. For even turns, the algorithm applies the "Pairing Strategy," proving Player 2 (Bob) can strictly force any pair of moves on the same half to sum to $9$. By computing the initial discrepancy against Bob's predictable forced additions (`sum1 - sum2 + (q1 - q2) / 2 * 9`), the solution perfectly predicts the optimal outcome in a single $O(N)$ linear pass.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
