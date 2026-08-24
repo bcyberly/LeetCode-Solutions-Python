@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-155-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-156-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -189,6 +189,7 @@ LeetCode-Solutions-Python/
 | 1563 | [Stone Game V](./DynamicProgramming/1563_Stone_Game_V.py) | Hard | Divide & Conquer DP with Prefix Sums | O(N³) | O(N²) |
 | 1594 | [Maximum Non Negative Product in a Matrix](./DynamicProgramming/1594_Max_Non_Negative_Product_Matrix.py) | Medium | 2D DP (Min/Max Dual-State) | O(M*N) | O(M*N) |
 | 1871 | [Jump Game VII](./DynamicProgramming/1871_Jump_Game_VII.py) | Medium | 1D DP + Sliding Window Count | O(N) | O(N) |
+| 1872 | [Stone Game VIII](./DynamicProgramming/1872_Stone_Game_VIII.py) | Hard | In-Place Prefix Sums & O(1) Minimax DP | O(N) | O(1) |
 | 2463 | [Minimum Total Distance Traveled](./DynamicProgramming/2463_Min_Total_Distance_Traveled.py) | Hard | Top-Down DP (Capacity Batching) | O(R² * F) | O(R * F) |
 | 2946 | [Matrix Similarity After Cyclic Shifts](./Matrix/2946_Matrix_Similarity_After_Cyclic_Shifts.py) | Easy | Modular Arithmetic + Slice Comparison | O(M*N) | O(N) |
 | 3129 | [Find All Possible Stable Binary Arrays I](./DynamicProgramming/3129_Find_All_Possible_Stable_Binary_Arrays_I.py) | Medium | DP with Invalid State Subtraction | O(Z * O) | O(Z * O) |
@@ -288,13 +289,13 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 155
+Total Problems: 156
 
 Easy: 47
 
 Medium: 72
 
-Hard: 36 
+Hard: 37 
 
 Last updated: Daily  
 
@@ -308,7 +309,7 @@ Last updated: Daily
 | Sliding Window             | 42, 1358, 1461, 1848, 1871, 2958, 3090, 3302, 3471 |
 | Bit Manipulation           | 67, 190, 401, 693, 762, 868, 1009, 1356, 1386, 1404, 1680, 1855, 3666 |
 | DFS / Trees                | 212, 1022, 1382, 2196 |
-| Dynamic Programming        | 486, 799, 1140, 1320, 1340, 1406, 1563, 1594, 1510, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
+| Dynamic Programming        | 486, 799, 1140, 1320, 1340, 1406, 1563, 1594, 1510, 1872, 2463, 2573, 2574, 3129, 3130, 3225, 3418, 3640, 3700, 3751, 3753 |
 | Prefix / Range Queries     | 2906, 3070, 3212, 3546, 3635, 3660, 3714, 3721, 3737, 3739, 3756 |
 | Simulation / Linear Scan   | 696, 1291, 1582, 1758, 1784, 1878,1967, 1980, 2161, 2996, 3014, 3069, 3379, 3499, 3517, 3633, 3637 |
 | Brute Force / Recursion    | 761, 1545, 3713, 3719 |
@@ -548,6 +549,8 @@ Last updated: Daily
 **3116. Kth Smallest Amount With Single Denomination Combination**: Showcases an advanced fusion of Discrete Mathematics and boundary searching. Bypassing the $O(K)$ iteration limit completely, the algorithm flips the premise to query the mathematical frequency of multiples beneath an arbitrary ceiling $x$. By utilizing Bitmasking to precompute the Least Common Multiples (LCM) and mathematical signs for all $2^N$ combinations, it evaluates the precise count of valid amounts in $O(2^N)$ time using the Principle of Inclusion-Exclusion (PIE). Embedding this evaluation inside a logarithmic Binary Search strictly isolates the $k$-th exact value, crushing massive bounds up to $10^{11}$ in mere milliseconds.
 
 **1927. Sum Game**: Deconstructs a combinatorial Minimax Game Theory prompt into a pure $O(1)$ space mathematical evaluation. By analyzing the parity of the available moves, the algorithm deduces that an odd number of turns guarantees Player 1 (Alice) the victory via the final unopposed move. For even turns, the algorithm applies the "Pairing Strategy," proving Player 2 (Bob) can strictly force any pair of moves on the same half to sum to $9$. By computing the initial discrepancy against Bob's predictable forced additions (`sum1 - sum2 + (q1 - q2) / 2 * 9`), the solution perfectly predicts the optimal outcome in a single $O(N)$ linear pass.
+
+**1872. Stone Game VIII**: Dismantles a complex merging-simulation game into a pure Mathematical Dynamic Programming model. By recognizing that replacing stones with their sum is mathematically identical to selecting an array's prefix sum, the algorithm evaluates choices in a single backward pass. Leveraging a highly optimized $O(1)$ Minimax state transition (`dp = max(dp, prefix[i] - dp)`), it effectively decides between deferring a turn or aggressively taking a prefix, achieving global optimality in absolute $O(N)$ time with zero auxiliary memory footprint.
 
 ### Tree Operations
 **1382. Balance a Binary Search Tree**: Demonstrates a brilliant two-step approach to restructuring trees. Instead of complex pointer rotations, it harvests nodes via an O(n) In-Order Traversal to get a sorted array, then uses Divide-and-Conquer to mathematically rebuild a perfectly balanced BST from the middle out.
