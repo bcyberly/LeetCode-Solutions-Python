@@ -1,6 +1,6 @@
 # LeetCode Solutions in Python
 
-![Problems Solved](https://img.shields.io/badge/Problems%20Solved-156-yellow)
+![Problems Solved](https://img.shields.io/badge/Problems%20Solved-157-yellow)
 ![Python](https://img.shields.io/badge/Python-3.8+-yellow)
 ![Daily Commits](https://img.shields.io/badge/Daily%20Commits-Yes-brightgreen)
 ![License](https://img.shields.io/badge/License-MIT-orange)
@@ -94,6 +94,7 @@ LeetCode-Solutions-Python/
 | 3653 | [XOR After Range Multiplication Queries I](./Arrays/3653_XOR_After_Range_Multiplication_I.py) | Medium | Array Simulation | O(Q*N) | O(1) |
 | 3655 | [XOR After Range Multiplication Queries II](./Arrays/3655_XOR_After_Range_Multiplication.py) | Hard | Sqrt Decomposition / Difference Arrays | O(N * sqrt(Q)) | O(N) |
 | 3660 | [Jump Game IX](./Arrays/3660_Jump_Game_IX.py) | Medium | Prefix Max & Suffix Min Sweeps | O(N) | O(N) |
+| 3718 | [Smallest Missing Multiple of K](./Arrays/3718_Smallest_Missing_Multiple_of_K.py) | Easy | Hash Set & Linear Step Traversal | O(N) | O(N) |
 | 3719 | [Longest Balanced Subarray I](./Arrays/3719_Longest_Balanced_Subarray_I.py) | Medium | Brute Force (All Subarrays)| O(n²) | O(n) |
 | 3721 | [Longest Balanced Subarray II](./Arrays/3721_Longest_Balanced_Subarray_II.py) | Hard | Segment Tree + Prefix Sums | O(n log n) | O(n) |
 | 3731 | [Find Missing Elements](./Arrays/3731_Find_Missing_Elements.py) | Easy | Hash Set Range Sweep | O(N+R) | O(N) |
@@ -289,9 +290,9 @@ if __name__ == "__main__":
 ```
 
 ## 📈 Progress Tracker
-Total Problems: 156
+Total Problems: 157
 
-Easy: 47
+Easy: 48
 
 Medium: 72
 
@@ -320,7 +321,7 @@ Last updated: Daily
 | Matrix / 2D Traversal      | 1260, 1582, 1594, 1727, 1878, 1886, 2906, 2946, 3070, 3212, 3546, 3548, 3567, 3643 |
 | String Manipulation / Parity | 2451, 2839, 2840 |
 | Arrays / Circular Traversal | 2515 |
-| Hash Map / Index Tracking | 36, 1189, 2615, 2657, 3020, 3488, 3731, 3740, 3741, 3761 |
+| Hash Map / Index Tracking | 36, 1189, 2615, 2657, 3020, 3488, 3718, 3731, 3740, 3741, 3761 |
 | Union-Find / Disjoint Set | 1722 |
 | Square Root Decomposition / Chunking | 3655 |
 | Array Simulation | 3653 |
@@ -429,6 +430,8 @@ Last updated: Daily
 **3069. Distribute Elements Into Two Arrays I**: Showcases a clean and optimal list simulation. By leveraging Python's `O(1)` list tail lookups (`arr[-1]`), the algorithm completely avoids scanning array contents or tracking auxiliary pointers. Elements are continuously appended to the correct sub-list based on instant peak-value comparisons, followed by a final `O(N)` list concatenation.
 
 **3622. Check Divisibility by Digit Sum and Product**: Demonstrates absolute memory efficiency by bypassing string casting (`str(n)`) completely. The algorithm extracts individual digits dynamically utilizing base-10 modulo arithmetic (`% 10`) and division reductions (`// 10`), resolving the dual sum and product calculations in a single $O(\log_{10} N)$ pass while preserving strict $O(1)$ constant auxiliary space.
+
+**3718. Smallest Missing Multiple of K**: Demonstrates how to rapidly search an unsorted array for a mathematical sequence without invoking an O(N log N) sorting penalty. By converting the input array into a Hash Set, the algorithm effectively reduces repetitive sequential multiple checks ($k, 2k, 3k \dots$) into absolute O(1) constant-time evaluations, achieving the minimal missing multiple dynamically in strict linear O(N) time.
 
 ### Complex Logic
 
